@@ -8,7 +8,11 @@ import {
   handleQueryFirestoreSubcollection,
   handleUploadFirestore,
 } from "@/utils/firestoreUtils";
-import { emailWithoutSpace, formatTitulatura } from "@/utils/strintText";
+import {
+  emailWithoutSpace,
+  formatTitulatura,
+  revertTitulatura,
+} from "@/utils/strintText";
 import { getCurrentDateTime } from "@/utils/timeUtils";
 import {
   createUserWithEmailAndPassword,
@@ -38,6 +42,7 @@ const LoginSignupUtilizator = () => {
   const [localitati, setLocalitati] = useState([]);
   const [judet, setJudet] = useState("");
   const [localitate, setLocalitate] = useState("");
+  const [sector, setSector] = useState(userData?.sector || "");
   const [isJudetSelected, setIsJudetSelected] = useState(true);
   const [isLocalitateSelected, setIsLocalitateSelected] = useState(true);
   const [isCateogireSelected, setIsCategorieSelected] = useState(true);
@@ -264,10 +269,11 @@ const LoginSignupUtilizator = () => {
         specialitateQ: specialitate,
         specialitate,
         specializare: specialitate,
-        titulaturaQ: titulatura,
+        titulaturaQ: revertTitulatura(titulatura),
         titulatura: formatTitulatura(titulatura),
         tipEnitate,
-        localitate,
+        localitate: judet === "Bucuresti" ? "Bucuresti" : localitate,
+        sector: judet === "Bucuresti" ? sector : "",
         judet,
         dataNasterii,
         telefon,
@@ -802,7 +808,15 @@ const LoginSignupUtilizator = () => {
                       data-live-search="true"
                       data-width="100%"
                       value={localitate}
-                      onChange={(e) => setLocalitate(e.target.value)}
+                      onChange={(e) => {
+                        console.log("Test...");
+                        if (e.target.value.includes("Sector")) {
+                          setLocalitate(e.target.value);
+                          setSector(e.target.value);
+                        } else {
+                          setLocalitate(e.target.value);
+                        }
+                      }}
                     >
                       <option data-tokens="SelectRole">Localitate</option>
                       {localitati.map((location, index) => (

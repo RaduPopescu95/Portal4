@@ -42,7 +42,10 @@ const ProfileInfo = () => {
 
   const [judet, setJudet] = useState(userData?.judet || "");
   const [localitate, setLocalitate] = useState(userData?.localitate || "");
-  const [titulatura, setTitulatura] = useState(userData?.titulatura || "MEDIC");
+  const [sector, setSector] = useState(userData?.sector || "");
+  const [titulatura, setTitulatura] = useState(
+    userData?.titulaturaQ || "MEDIC"
+  );
   const [specialitate, setSpecialitate] = useState(
     userData?.specialitate || ""
   );
@@ -174,10 +177,11 @@ const ProfileInfo = () => {
         specialitate,
         specialitateQ: specialitate,
         titulatura: formatTitulatura(titulatura),
-        titulaturaQ: titulatura,
+        titulaturaQ: revertTitulatura(titulatura),
         specializare: specialitate,
         descriere,
-        localitate,
+        localitate: judet === "Bucuresti" ? "Bucuresti" : localitate,
+        sector: judet === "Bucuresti" ? sector : "",
         judet,
         dataNasterii,
         email: emailNew,
@@ -289,6 +293,7 @@ const ProfileInfo = () => {
         );
         // Presupunem că localitatiFromFirestore este array-ul corect al localităților
         setLocalitati(localitatiFromFirestore);
+        setLocalitate(localitatiFromFirestore[0].localitate);
       } catch (error) {
         console.error("Failed to fetch locations:", error);
         setLocalitati([]); // Resetează localitățile în caz de eroare
@@ -512,7 +517,15 @@ const ProfileInfo = () => {
             data-live-search="true"
             data-width="100%"
             value={localitate}
-            onChange={(e) => setLocalitate(e.target.value)}
+            onChange={(e) => {
+              console.log("Test...");
+              if (e.target.value.includes("Sector")) {
+                setLocalitate(e.target.value);
+                setSector(e.target.value);
+              } else {
+                setLocalitate(e.target.value);
+              }
+            }}
           >
             {localitati.map((location, index) => (
               <option key={index} value={location.localitate}>

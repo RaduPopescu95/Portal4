@@ -96,7 +96,9 @@ const FeaturedItemHome = ({ params }) => {
     const cadreMedicale = await handleQueryFirestore(
       "UsersUber",
       "userType",
-      "Doctor"
+      "Doctor",
+      "localitate",
+      localitate
     );
 
     let parteneriCuDistanta = await Promise.all(
