@@ -9,11 +9,16 @@ import {
   handleQueryFirestoreSubcollection,
   handleUpdateFirestore,
 } from "@/utils/firestoreUtils";
-import { emailWithoutSpace } from "@/utils/strintText";
+import {
+  emailWithoutSpace,
+  formatTitulatura,
+  revertTitulatura,
+} from "@/utils/strintText";
 import { useEffect, useState } from "react";
 import DatePicker from "react-datepicker";
 import LogoUpload from "./LogoUpload";
 import { uploadImage } from "@/utils/storageUtils";
+import { TITLES_AND_SPECIALTIES } from "@/utils/constanteTitulatura";
 
 const ProfileInfo = () => {
   const [initialData, setInitialData] = useState({});
@@ -37,10 +42,19 @@ const ProfileInfo = () => {
 
   const [judet, setJudet] = useState(userData?.judet || "");
   const [localitate, setLocalitate] = useState(userData?.localitate || "");
-  const [titulatura, setTitulatura] = useState(userData?.titulatura || "");
+  const [titulatura, setTitulatura] = useState(userData?.titulatura || "MEDIC");
+  const [specialitate, setSpecialitate] = useState(
+    userData?.specialitate || ""
+  );
+  const [specialitati, setSpecialitati] = useState(
+    userData?.titulatura
+      ? TITLES_AND_SPECIALTIES[revertTitulatura(userData?.titulatura)]
+      : TITLES_AND_SPECIALTIES["MEDIC"]
+  );
   const [specializare, setSpecializare] = useState(
     userData?.specializare || ""
   );
+  const [descriere, setDescriere] = useState(userData?.descriere || "");
   const [cuim, setCuim] = useState(userData?.cuim || "");
   const [cif, setCIF] = useState(userData?.cif || "");
   const [tipEnitate, setTipEnitate] = useState(userData?.tipEnitate || "");
@@ -66,6 +80,18 @@ const ProfileInfo = () => {
     setGoogleMapsLink(urlMaps);
     setCoordonate({ lat, lng });
     // Aici poți actualiza starea sau trimite aceste date către backend
+  };
+
+  const handleTitleChange = (event) => {
+    const title = event.target.value;
+    setTitulatura(title);
+    setSpecialitati(TITLES_AND_SPECIALTIES[title] || []);
+    setSpecialitate(""); // Reset specialty when title changes
+  };
+
+  const handleSpecialtyChange = (event) => {
+    setSpecialitate(event.target.value);
+    setSpecializare(event.target.value);
   };
 
   let isEdit = userData?.logo?.finalUri ? true : false;
@@ -145,8 +171,12 @@ const ProfileInfo = () => {
         cuim,
         cif,
         codParafa,
-        specializare,
-        titulatura,
+        specialitate,
+        specialitateQ: specialitate,
+        titulatura: formatTitulatura(titulatura),
+        titulaturaQ: titulatura,
+        specializare: specialitate,
+        descriere,
         localitate,
         judet,
         dataNasterii,
@@ -399,6 +429,52 @@ const ProfileInfo = () => {
 
       <div className="col-lg-6 col-xl-6">
         <div className="my_profile_setting_input ui_kit_select_search form-group">
+          <label>Titulatura</label>
+          <select
+            className={`selectpicker form-select ${
+              !titulatura && buttonPressed ? "border-danger" : null
+            }`}
+            data-live-search="true"
+            data-width="100%"
+            value={titulatura}
+            onChange={handleTitleChange}
+          >
+            <option value="">Selectează o titulatură</option>
+            {Object.keys(TITLES_AND_SPECIALTIES).map((title) => (
+              <option key={title} value={title}>
+                {formatTitulatura(title)}
+              </option>
+            ))}
+          </select>
+        </div>
+      </div>
+      {/* End .col */}
+
+      <div className="col-lg-6 col-xl-6">
+        <div className="my_profile_setting_input ui_kit_select_search form-group">
+          <label>Specialitate</label>
+          <select
+            className={`selectpicker form-select ${
+              !specialitate && buttonPressed ? "border-danger" : null
+            }`}
+            data-live-search="true"
+            data-width="100%"
+            value={specialitate}
+            onChange={handleSpecialtyChange}
+          >
+            <option value="">Selectează o specialitate</option>
+            {specialitati.map((specialty) => (
+              <option key={specialty} value={specialty}>
+                {specialty}
+              </option>
+            ))}
+          </select>
+        </div>
+      </div>
+      {/* End .col */}
+
+      <div className="col-lg-6 col-xl-6">
+        <div className="my_profile_setting_input ui_kit_select_search form-group">
           <label>Judet</label>
           <select
             className={`selectpicker form-select ${
@@ -480,7 +556,7 @@ const ProfileInfo = () => {
           /> */}
           <div
             className={`form-control d-flex align-items-center ${
-              !telefon && buttonPressed && "border-danger"
+              !dataNasterii && buttonPressed && "border-danger"
             }`}
           >
             <select
@@ -517,6 +593,20 @@ const ProfileInfo = () => {
         </div>
       </div>
 
+      {/* End .col */}
+
+      <div className="col-lg-12">
+        <div className="my_profile_setting_textarea">
+          <label htmlFor="propertyDescription">Despre mine</label>
+          <textarea
+            className="form-control"
+            id="propertyDescription"
+            rows="7"
+            value={descriere}
+            onChange={(e) => setDescriere(e.target.value)}
+          ></textarea>
+        </div>
+      </div>
       {/* End .col */}
 
       {/* <div className="col-xl-12">

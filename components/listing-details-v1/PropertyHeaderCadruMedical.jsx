@@ -47,7 +47,7 @@ const PropertyHeaderCadruMedical = ({ titulatura, oferta, partener }) => {
         </div>
       </a>
 
-      <FormularContact docCV={oferta?.docsUrls[0]} />
+      {/* <FormularContact docCV={oferta?.docsUrls[0]} /> */}
     </div>
   );
 };

@@ -8,7 +8,7 @@ const PropertyDescriptions = ({ oferta }) => {
 
   return (
     <>
-      <p className="mt10 mb10">{oferta?.descriereOferta}</p>
+      <p className="mt10 mb10">{oferta?.descriere}</p>
     </>
   );
 };

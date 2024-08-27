@@ -242,14 +242,14 @@ const FeaturedItemHome = ({ params }) => {
   return (
     <>
       {isLoading ? <SkeletonLoader /> : contentCadreMedicale}
-      {isNoLocation && (
+      {/* {isNoLocation && (
         <div className="d-flex justify-content-center align-items-center">
           <p>
             Accesul la locație a fost blocat. Te rog activează accesul la
             locație din setările browserului sau dispozitivului tău.
           </p>
         </div>
-      )}
+      )} */}
 
       {paginatedCadreMedicale().length === 0 && !isLoading && (
         <div className="d-flex justify-content-center align-items-center">

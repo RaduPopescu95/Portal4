@@ -8,7 +8,7 @@ import {
   handleQueryFirestoreSubcollection,
   handleUploadFirestore,
 } from "@/utils/firestoreUtils";
-import { emailWithoutSpace } from "@/utils/strintText";
+import { emailWithoutSpace, formatTitulatura } from "@/utils/strintText";
 import { getCurrentDateTime } from "@/utils/timeUtils";
 import {
   createUserWithEmailAndPassword,
@@ -22,6 +22,7 @@ import { use, useRef, useState } from "react";
 import { AlertModal } from "../AlertModal";
 import useDataNasterii from "@/hooks/useDataNasterii";
 import AutocompleteInput from "../AutocompleteInput";
+import { TITLES_AND_SPECIALTIES } from "@/utils/constanteTitulatura";
 
 const LoginSignupUtilizator = () => {
   const { userData, currentUser, setCurrentUser, setUserData, judete } =
@@ -47,7 +48,6 @@ const LoginSignupUtilizator = () => {
   const [numeUtilizator, setNumeUtilizator] = useState("");
   const [telefon, setTelefon] = useState("");
   // const [dataNasterii, setDataNasterii] = useState("");
-  const [titulatura, setTitulatura] = useState("");
   const [tipEnitate, setTipEnitate] = useState("");
   const [specializare, setSpecializare] = useState("");
   const [cuim, setCuim] = useState("");
@@ -64,8 +64,24 @@ const LoginSignupUtilizator = () => {
   const [inputType, setInputType] = useState("text");
   const [adresaSediu, setAdresaSediu] = useState("");
   const [googleMapsLink, setGoogleMapsLink] = useState("");
+  const [titulatura, setTitulatura] = useState("");
+  const [specialitate, setSpecialitate] = useState("");
+  const [specialitati, setSpecialitati] = useState([]);
   const [coordonate, setCoordonate] = useState({});
   const router = useRouter();
+
+  const handleTitleChange = (event) => {
+    const title = event.target.value;
+    console.log("title....", title);
+    setTitulatura(title);
+    setSpecialitati(TITLES_AND_SPECIALTIES[title] || []);
+    setSpecialitate(""); // Reset specialty when title changes
+  };
+
+  const handleSpecialtyChange = (event) => {
+    setSpecialitate(event.target.value);
+    setSpecializare(event.target.value);
+  };
 
   const showAlert = (message, type) => {
     setAlert({ message, type });
@@ -245,8 +261,11 @@ const LoginSignupUtilizator = () => {
         cuim,
         codParafa,
         cif,
-        specializare,
-        titulatura,
+        specialitateQ: specialitate,
+        specialitate,
+        specializare: specialitate,
+        titulaturaQ: titulatura,
+        titulatura: formatTitulatura(titulatura),
         tipEnitate,
         localitate,
         judet,
@@ -719,6 +738,43 @@ const LoginSignupUtilizator = () => {
                     </div>
                   </div>
                   {/* End .row */}
+                  <div className="form-group ui_kit_select_search mb-3">
+                    <select
+                      className={`form-select ${
+                        !titulatura && buttonPressed && "border-danger"
+                      }`}
+                      data-live-search="true"
+                      data-width="100%"
+                      value={titulatura}
+                      onChange={handleTitleChange}
+                    >
+                      <option value="">Selectează o titulatură</option>
+                      {Object.keys(TITLES_AND_SPECIALTIES).map((title) => (
+                        <option key={title} value={title}>
+                          {formatTitulatura(title)}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                  <div className="form-group ui_kit_select_search mb-3">
+                    <select
+                      className={`form-select ${
+                        !specialitate && buttonPressed && "border-danger"
+                      }`}
+                      data-live-search="true"
+                      data-width="100%"
+                      value={specialitate}
+                      onChange={handleSpecialtyChange}
+                    >
+                      <option value="">Selectează o specialitate</option>
+                      {specialitati.map((specialty) => (
+                        <option key={specialty} value={specialty}>
+                          {specialty}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                  {/* End from-group */}
                   <div className="form-group ui_kit_select_search mb-3">
                     <select
                       className={`form-select ${

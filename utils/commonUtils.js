@@ -445,7 +445,7 @@ export const handleGetAnunturiArray = async (t, s, j, l, tA, tP) => {
       "UsersUber",
       "judet",
       judet,
-      "titulatura",
+      "titulaturaQ",
       titulatura,
       "userType",
       "Doctor"
@@ -458,7 +458,7 @@ export const handleGetAnunturiArray = async (t, s, j, l, tA, tP) => {
     console.log("aici sunt...", titulatura);
     cadreMeds = await handleQueryFirestore(
       "UsersUber",
-      "titulatura",
+      "titulaturaQ",
       titulatura,
       "userType",
       "Doctor"

@@ -61,15 +61,15 @@ const ListingDynamicDetailsV1 = async ({ params, searchParams }) => {
             <div className="col-lg-12 p-0">
               <PropertyHeaderCadruMedical
                 partener={partener[0]}
-                oferta={oferte[0]}
-                titulatura={oferte[0].titulatura}
+                oferta={partener[0]}
+                titulatura={partener[0].titulatura}
               />
             </div>
             <div className="col-md-12 col-lg-12">
               <DetailsContent
                 partener={partener[0]}
-                oferta={oferte[0]}
-                titulatura={oferte[0].titulatura}
+                oferta={partener[0]}
+                titulatura={partener[0].titulatura}
               />
             </div>
 
