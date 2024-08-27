@@ -2,7 +2,7 @@ import dynamic from "next/dynamic";
 import AgencyDetails from "@/components/agency-details";
 
 export const metadata = {
-  title: "Agency Details || JobsMD",
+  title: "Agency Details || UberMD",
   description: "Portal",
 };
 

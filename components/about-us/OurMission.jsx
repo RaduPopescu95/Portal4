@@ -29,16 +29,16 @@ const OurMission = () => {
         <div className="about_content">
           {/* <p className="large"> */}
           <p className="large mb0 mb-0">
-            Bine ați venit pe JobsMD, platforma dedicată exclusiv cadrelor
+            Bine ați venit pe UberMD, platforma dedicată exclusiv cadrelor
             medicale și instituțiilor din domeniul sănătății. Indiferent dacă
             sunteți un angajator în căutare de profesioniști de top sau un
-            angajat dornic să-și găsească locul potrivit în carieră, JobsMD este
+            angajat dornic să-și găsească locul potrivit în carieră, UberMD este
             aici să vă ajute.
           </p>
-          {/* <h2>De ce JobsMD?</h2>
+          {/* <h2>De ce UberMD?</h2>
           <h3>Anunțuri Verificate Manual</h3>
           <p>
-            Pe JobsMD, siguranța și calitatea sunt pe primul loc. Toate
+            Pe UberMD, siguranța și calitatea sunt pe primul loc. Toate
             anunțurile și companiile sunt verificate manual pentru a asigura
             autenticitatea și relevanța acestora. Astfel, puteți aplica sau
             posta locuri de muncă cu încredere deplină.
@@ -46,7 +46,7 @@ const OurMission = () => {
           <h3>Vizibilitate și Transparență</h3>
           <p>
             Candidații moderni vor să știe mai multe despre locurile unde ar
-            putea lucra. JobsMD vă permite să vă prezentați compania în detaliu
+            putea lucra. UberMD vă permite să vă prezentați compania în detaliu
             - de la echipă și spațiile de lucru până la avantajele pe care le
             oferiți. În plus, puteți adăuga poze pentru a ilustra mai bine
             mediul de lucru și a atrage astfel cei mai buni profesioniști.
@@ -56,7 +56,7 @@ const OurMission = () => {
           <p>
             Pentru a adăuga anunțuri pe platforma noastră, este necesar să vă
             creați un cont. Acest proces este simplu și rapid, dar important
-            pentru a menține calitatea serviciilor noastre. JobsMD este dedicat
+            pentru a menține calitatea serviciilor noastre. UberMD este dedicat
             doar persoanelor fizice și juridice care activează în sfera medicală
             sau furnizează servicii relevante pentru acest sector.
           </p> */}

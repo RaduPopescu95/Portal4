@@ -4,7 +4,7 @@ import { handleQueryFirestore } from "@/utils/firestoreUtils";
 import { unstable_noStore as noStore } from "next/cache";
 
 export const metadata = {
-  title: "Portal || JobsMD",
+  title: "Portal || UberMD",
   description: "Portal",
 };
 

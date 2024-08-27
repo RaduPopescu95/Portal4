@@ -7,9 +7,9 @@ const Footer = () => {
     <>
       <div className="col-sm-6 col-md-6 col-lg-4 col-xl-4 pr0 pl0">
         <div className="footer_about_widget">
-          <h4>Alăturați-vă Comunității JobsMD</h4>
+          <h4>Alăturați-vă Comunității UberMD</h4>
           <p>
-            JobsMD nu este doar o platformă de recrutare, ci o comunitate
+            UberMD nu este doar o platformă de recrutare, ci o comunitate
             dedicată excelenței în domeniul medical. Alăturați-vă astăzi și
             descoperiți cum vă putem ajuta să vă atingeți obiectivele
             profesionale.

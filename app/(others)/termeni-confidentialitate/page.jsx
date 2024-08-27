@@ -2,9 +2,9 @@ import dynamic from "next/dynamic";
 import Terms from "@/components/terms-conditions";
 
 export const metadata = {
-  title: "Termeni și Condiții - JobsMD",
+  title: "Termeni și Condiții - UberMD",
   description:
-    "JobsMD conectează cadrele medicale cu ofertele speciale ale partenerilor economici",
+    "UberMD conectează cadrele medicale cu ofertele speciale ale partenerilor economici",
 };
 
 const index = () => {

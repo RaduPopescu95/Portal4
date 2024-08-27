@@ -35,7 +35,7 @@ const index = () => {
             <div className="col-lg-6 offset-lg-3">
               <div className="main-title text-center">
                 <h2 className="mt0">
-                  JobsMD: Platforma ta de încredere pentru locuri de muncă în
+                  UberMD: Platforma ta de încredere pentru locuri de muncă în
                   domeniul medical din România
                 </h2>
               </div>
@@ -51,7 +51,7 @@ const index = () => {
           <div className="row mt80">
             <div className="col-lg-6 offset-lg-3">
               <div className="main-title text-center">
-                <h2>De ce JobsMD?</h2>
+                <h2>De ce UberMD?</h2>
                 <p>Oferim serviciu complet pas cu pas</p>
               </div>
             </div>

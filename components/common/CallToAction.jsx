@@ -6,12 +6,12 @@ const CallToAction = () => {
       <div className="col-lg-8">
         <div className="start_partner tac-smd">
           <h2>
-            JobsMD - Locul unde carierele medicale și oportunitățile se
+            UberMD - Locul unde carierele medicale și oportunitățile se
             întâlnesc.
           </h2>
           <p>
             Înregistrează-te acum și începe călătoria ta către succes în
-            domeniul medical cu JobsMD!
+            domeniul medical cu UberMD!
           </p>{" "}
         </div>
         {/* End .col */}

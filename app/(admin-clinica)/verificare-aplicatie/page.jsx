@@ -6,8 +6,8 @@ import {
 } from "@/utils/firestoreUtils";
 
 export const metadata = {
-  title: "Creaza discount || JobsMD",
-  description: "JobsMD",
+  title: "Creaza discount || UberMD",
+  description: "UberMD",
 };
 
 const index = async () => {

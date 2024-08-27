@@ -2,7 +2,7 @@ import dynamic from "next/dynamic";
 import MyReview from "@/components/dashboard/my-review";
 
 export const metadata = {
-  title: "My Review || JobsMD",
+  title: "My Review || UberMD",
   description: "Portal",
 };
 

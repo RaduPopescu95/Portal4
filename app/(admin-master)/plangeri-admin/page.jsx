@@ -7,7 +7,7 @@ import {
 import { unstable_noStore as noStore } from "next/cache";
 
 export const metadata = {
-  title: "Lista anunturi angajare || JobsMD",
+  title: "Lista anunturi angajare || UberMD",
   description: "Porta",
 };
 

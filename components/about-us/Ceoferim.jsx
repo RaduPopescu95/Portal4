@@ -13,7 +13,7 @@ const Oferim = () => {
       id: 2,
       icon: "flaticon-telephone",
       number: "Suport Dedicat",
-      meta: "Echipa JobsMD este mereu aici pentru a vă oferi suport și asistență în utilizarea platformei noastre.",
+      meta: "Echipa UberMD este mereu aici pentru a vă oferi suport și asistență în utilizarea platformei noastre.",
     },
     {
       id: 3,
@@ -30,7 +30,7 @@ const Oferim = () => {
           {/* <p className="large">
             Pentru a adăuga anunțuri pe platforma noastră, este necesar să vă
             creați un cont. Acest proces este simplu și rapid, dar important
-            pentru a menține calitatea serviciilor noastre. JobsMD este dedicat
+            pentru a menține calitatea serviciilor noastre. UberMD este dedicat
             doar persoanelor fizice și juridice care activează în sfera medicală
             sau furnizează servicii relevante pentru acest sector.
           </p> */}

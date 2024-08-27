@@ -2,7 +2,7 @@ import dynamic from "next/dynamic";
 import MyFavourites from "@/components/dashboard/my-favourites";
 
 export const metadata = {
-  title: "My Favourites || JobsMD",
+  title: "My Favourites || UberMD",
   description: "Portal",
 };
 

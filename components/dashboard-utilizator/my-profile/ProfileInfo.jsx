@@ -293,7 +293,11 @@ const ProfileInfo = () => {
         );
         // Presupunem că localitatiFromFirestore este array-ul corect al localităților
         setLocalitati(localitatiFromFirestore);
-        setLocalitate(localitatiFromFirestore[0].localitate);
+        if (!userData.localitate) {
+          setLocalitate(localitatiFromFirestore[0].localitate);
+        } else {
+          setLocalitate(userData.localitate);
+        }
       } catch (error) {
         console.error("Failed to fetch locations:", error);
         setLocalitati([]); // Resetează localitățile în caz de eroare

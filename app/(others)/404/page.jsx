@@ -2,7 +2,7 @@ import dynamic from "next/dynamic";
 import NotFound from "@/components/404";
 
 export const metadata = {
-  title: "404 Not Found || JobsMD",
+  title: "404 Not Found || UberMD",
   description: "Portal",
 };
 

@@ -17,7 +17,7 @@ import blogs from "@/data/blogs";
 import Image from "next/image";
 
 export const metadata = {
-  title: "Blog Details || JobsMD",
+  title: "Blog Details || UberMD",
   description: "Portal",
 };
 
