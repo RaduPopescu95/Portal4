@@ -1,0 +1,29 @@
+import { emailWithoutSpace } from "@/utils/strintText";
+import CopyrightFooter from "../common/footer/CopyrightFooter";
+import Footer from "../common/footer/Footer";
+import Header from "../common/header/DefaultHeader";
+import MobileMenu from "../common/header/MobileMenu";
+import PopupSignInUp from "../common/PopupSignInUp";
+import BreadCrumbBanner from "./BreadCrumbBanner";
+import Form from "./Form";
+
+const index = () => {
+  return (
+    <>
+      {/* <!-- Our Sign in --> */}
+      <section className="dashboard-sigin-container">
+        <div className="container">
+          <div className="row">
+            <div className="col-sm-12 col-lg-6 offset-lg-3">
+              <div className="login_form  inner_page">
+                <Form />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+};
+
+export default index;

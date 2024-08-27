@@ -1,0 +1,47 @@
+import { MetadataRoute } from "next";
+
+export default function robots() {
+  return {
+    rules: {
+      userAgent: "*",
+      allow: "/",
+      disallow: [
+        "/autentificare-cont-clinici",
+        "/creaza-anunt",
+        "/creaza-produs-serviciu",
+        "lista-anunturi",
+        "panou-clinici",
+        "clinici-favourites",
+        "clinici-message",
+        "clinici-package",
+        "clinici-review",
+        "profil-clinici",
+        "verificare-tranzactie",
+        "admin",
+        "confirma-tranzactie",
+        "favorites-master",
+        "lista-utilizatori",
+        "lista-clinicii",
+        "lista-tranzactii",
+        "master-package",
+        "master-review",
+        "plangeri-admin",
+        "signin",
+        "verifica-oferita",
+        "verificare-utilizator",
+        "verificare-clinici",
+        "cardurile-mele",
+        "create-listing",
+        "discounturi",
+        "favorite",
+        "lista-tranzactii-oferte",
+        "mesaje-utile",
+        "panou-utilizator",
+        "profil",
+        "recenzii",
+        "salvate",
+      ],
+    },
+    sitemap: "https://Jobsmd.ro/sitemap.xml",
+  };
+}
