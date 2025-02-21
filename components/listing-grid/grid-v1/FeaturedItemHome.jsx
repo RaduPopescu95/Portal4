@@ -154,19 +154,26 @@ const FeaturedItemHome = ({ params }) => {
 
   async function handleGeoError(error) {
     // alert("Geolocation error: ", error.message);
-    console.error("Geolocation error: ", error.message);
+    // console.error("Geolocation error: ", error.message);
     setIsLoading(false);
     // setIsNoLocation(true);
     // Informează utilizatorul despre cum poate activa locația manual
-    if (error.code === error.PERMISSION_DENIED) {
-      setIsNoLocation(true);
-      const cadreMedicale = await handleQueryFirestore(
-        "UsersUber",
-        "userType",
-        "Doctor"
-      );
-      setCadreMedical(cadreMedicale);
-    }
+    setIsNoLocation(true);
+    const cadreMedicale = await handleQueryFirestore(
+      "UsersUber",
+      "userType",
+      "Doctor"
+    );
+    setCadreMedical(cadreMedicale);
+    // if (error.code === error.PERMISSION_DENIED) {
+    //   setIsNoLocation(true);
+    //   const cadreMedicale = await handleQueryFirestore(
+    //     "UsersUber",
+    //     "userType",
+    //     "Doctor"
+    //   );
+    //   setCadreMedical(cadreMedicale);
+    // }
   }
 
   const requestLocationAccess = () => {
@@ -182,15 +189,16 @@ const FeaturedItemHome = ({ params }) => {
   };
 
   useEffect(() => {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
-        handleGeoSuccess,
-        handleGeoError
-      );
-    } else {
-      console.error("Geolocation is not supported by this browser.");
-      setIsLoading(false);
-    }
+    handleGeoError()
+    // if (navigator.geolocation) {
+    //   navigator.geolocation.getCurrentPosition(
+    //     handleGeoSuccess,
+    //     handleGeoError
+    //   );
+    // } else {
+    //   console.error("Geolocation is not supported by this browser.");
+    //   setIsLoading(false);
+    // }
   }, []);
 
   const paginatedCadreMedicale = () => {
@@ -225,13 +233,25 @@ const FeaturedItemHome = ({ params }) => {
             <FeaturedProperty item={item} isGridOrList={isGridOrList} />
           </Link>
         ) : (
-          <a
-            key={item?.id}
-            data-bs-toggle="modal"
-            data-bs-target=".bd-utilizator-modal-lg"
-          >
-            <FeaturedProperty item={item} isGridOrList={isGridOrList} />
-          </a>
+          <Link
+          href={{
+            pathname: `/cadru-medical/${toUrlSlug(
+              item?.localitate
+            )}-${toUrlSlug(item?.titulatura)}`,
+            query: { slug: item?.id },
+          }}
+          key={item?.id}
+          passHref
+        >
+          <FeaturedProperty item={item} isGridOrList={isGridOrList} />
+        </Link>
+          // <a
+          //   key={item?.id}
+          //   data-bs-toggle="modal"
+          //   data-bs-target=".bd-utilizator-modal-lg"
+          // >
+          //   <FeaturedProperty item={item} isGridOrList={isGridOrList} />
+          // </a>
         )}
       </div>
     ));

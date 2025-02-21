@@ -77,7 +77,7 @@ const index = ({ rezervari }) => {
 
                 <div className="col-xl-12 mb-4">
                   <div className="recent_job_activity">
-                    <h4 className="title mb-4">Oferte accesate recent</h4>
+                    {/* <h4 className="title mb-4">Rezervari</h4> */}
                     <Activities rezervari={rezervari} />
                   </div>
                 </div>
@@ -85,7 +85,7 @@ const index = ({ rezervari }) => {
               <div className="row">
                 <div className="col-xl-7">
                   <div className="application_statics">
-                    <h4 className="mb-4">View Statistics</h4>
+                    <h4 className="mb-4">Rezervari</h4>
                     <StatisticsChart rezervari={rezervari} />
                   </div>
                 </div>

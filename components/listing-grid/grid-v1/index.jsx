@@ -74,7 +74,7 @@ const index = ({ params, searchQuery }) => {
                 id="sidebarListing"
               >
                 <div className="offcanvas-header">
-                  <h5 className="offcanvas-title">Cautare parteneri</h5>
+                  <h5 className="offcanvas-title">Cautare specialisti</h5>
                   <button
                     type="button"
                     className="btn-close text-reset"

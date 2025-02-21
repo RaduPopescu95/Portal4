@@ -3,9 +3,9 @@ import HomeMain from "./(homes)/home-4/page";
 import { AuthProvider } from "@/context/AuthContext";
 
 export const metadata = {
-  title: "UberMD - Oferte Exclusive pentru cadre medicale",
+  title: "Connectify",
   description:
-    "Descoperă cele mai bune oferte și beneficii de la hoteluri, restaurante și alți parteneri economici dedicate exclusiv cadrelor medicale. Accesează acum portalul UberMD pentru avantaje unice!",
+    "Connectify",
 };
 
 export default function Home() {

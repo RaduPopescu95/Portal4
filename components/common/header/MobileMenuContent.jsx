@@ -122,7 +122,7 @@ const MobileMenuContent = () => {
             </div>
           </MenuItem>
 
-          <MenuItem>
+          {/* <MenuItem>
             <div
               onClick={() => router.push("/plangeri")}
               className={
@@ -131,7 +131,7 @@ const MobileMenuContent = () => {
             >
               Plângeri
             </div>
-          </MenuItem>
+          </MenuItem> */}
 
           {currentUser && userData?.userType ? null : (
             <>

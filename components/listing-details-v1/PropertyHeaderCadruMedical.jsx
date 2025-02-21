@@ -8,9 +8,9 @@ const PropertyHeaderCadruMedical = ({ titulatura, oferta, partener }) => {
       <div className="details ">
         <div className="tc_content pt10 d-flex flex-column justify-content-center align-items-center">
           <Image
-            width={200}
-            height={200}
-            className="logo1 img-fluid"
+            width={600}
+            height={600}
+            className="logo1 profil-image-logo img-fluid"
             src={partener?.logo?.finalUri}
             alt="Logo"
             layout="intrinsic"
@@ -21,7 +21,7 @@ const PropertyHeaderCadruMedical = ({ titulatura, oferta, partener }) => {
         </div>
       </div>
 
-      <a
+      {/* <a
         href={`tel:${partener?.telefonUnu}`}
         className="details"
         style={{ cursor: "pointer" }}
@@ -45,7 +45,7 @@ const PropertyHeaderCadruMedical = ({ titulatura, oferta, partener }) => {
         <div className="tc_content">
           <h3>Contactează pe WhatsApp</h3>
         </div>
-      </a>
+      </a> */}
 
       {/* <FormularContact docCV={oferta?.docsUrls[0]} /> */}
     </div>

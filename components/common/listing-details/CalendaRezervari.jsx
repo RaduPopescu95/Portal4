@@ -105,14 +105,16 @@ const CalendarRezervari = ({ specialistUid }) => {
       const rezervareDocRef = await addDoc(rezervariRef, rezervareStructura);
       const rezervareDocId = rezervareDocRef.id;
 
-      const domain = "https://www.workspace.com";
+      const domain = "https://www.connectify.com";
       const linkConectareUtilizator = `${domain}/video-call?idConnect=${rezervareDocId}-${specialistUid}`;
+      const linkConectareSpecialist = `${domain}/video-call-specialist?idConnect=${rezervareDocId}-${specialistUid}`;
 
       await updateDoc(
         doc(db, "UsersUber", specialistUid, "RezervariConsultatii", rezervareDocId),
         {
           channel: rezervareDocId,
           linkConectareUtilizator,
+          linkConectareSpecialist
         }
       );
 
@@ -120,6 +122,7 @@ const CalendarRezervari = ({ specialistUid }) => {
         ...rezervareStructura,
         channel: rezervareDocId,
         linkConectareUtilizator,
+        linkConectareSpecialist
       });
 
       setAlertData({

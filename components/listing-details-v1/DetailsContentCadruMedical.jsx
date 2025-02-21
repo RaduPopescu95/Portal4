@@ -132,7 +132,7 @@ const DetailsContentCadruMedical = ({ partener, oferta, titulatura }) => {
           <PropertyLocation coordonate={partener?.coordonate} />
         </div>
         {/* {partener.userType === "Doctor" ? null : ( */}
-        <div className="search_option_button mt20">
+        {/* <div className="search_option_button mt20">
           <button
             onClick={handleNavigare}
             type="submit"
@@ -140,7 +140,7 @@ const DetailsContentCadruMedical = ({ partener, oferta, titulatura }) => {
           >
             Navighează la locație
           </button>
-        </div>
+        </div> */}
         {/* )} */}
       </div>
       {/* End .location_area */}

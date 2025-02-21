@@ -265,9 +265,20 @@ const FeaturedItem = ({ params, searchQuery }) => {
             <FeaturedProperty item={item} isGridOrList={isGridOrList} />
           </Link>
         ) : (
-          <a data-bs-toggle="modal" data-bs-target=".bd-utilizator-modal-lg">
-            <FeaturedProperty item={item} isGridOrList={isGridOrList} />
-          </a>
+          <Link
+          href={{
+            pathname: pathname,
+            query: {
+              slug: item.cadruMedical?.id,
+            },
+          }}
+          passHref
+        >
+          <FeaturedProperty item={item} isGridOrList={isGridOrList} />
+        </Link>
+          // <a data-bs-toggle="modal" data-bs-target=".bd-utilizator-modal-lg">
+          //   <FeaturedProperty item={item} isGridOrList={isGridOrList} />
+          // </a>
         )}
       </div>
     );

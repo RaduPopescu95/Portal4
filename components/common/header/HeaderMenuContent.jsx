@@ -124,14 +124,14 @@ const HeaderMenuContent = ({ float = "" }) => {
       </li>
       {/* End .simpleitem */}
 
-      <li className="last">
+      {/* <li className="last">
         <Link
           href="/plangeri"
           className={pathname === "/plangeri" ? "ui-active" : undefined}
         >
           Plângeri
         </Link>
-      </li>
+      </li> */}
       {/* End .simpleitem */}
 
       {currentUser && userData?.userType ? null : (

@@ -6417,7 +6417,7 @@ form.home5_advanced_search_form
 }
 
 .feat_property.list .details {
-  width: 70%;
+  width: 100%;
 }
 
 .feat_property.list .details .fp_footer {
@@ -21199,3 +21199,7 @@ button.gm-ui-hover-effect:focus {
   color: var(--color-primary) !important;
 }
 
+
+.profil-image-logo{
+  border-radius: 3%;
+}
