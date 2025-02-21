@@ -71,14 +71,14 @@ const HeaderMenuContent = ({ float = "" }) => {
       </li>
       {/* End .simpleitem */}
 
-      <li className="last">
+      {/* <li className="last">
         <Link
           href="/parteneri"
           className={pathname === "/parteneri" ? "ui-active" : undefined}
         >
           Clinici
         </Link>
-      </li>
+      </li> */}
       {/* End .simpleitem */}
 
       {/* <li className="last">
