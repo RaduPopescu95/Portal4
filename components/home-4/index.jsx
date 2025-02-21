@@ -59,7 +59,7 @@ const index = ({ params }) => {
                     Portalul potrivit pentru nevoile tale
                   </h2>
                   <p className="fz18 color-white">
-                    Gaseste usor operatorul economic cel mai apropiata de tine
+                    Gaseste usor specialiști în zona ta
                   </p>
                 </div>
                 <GlobalHeroFilter className="home4" userData={userData} />
@@ -85,7 +85,7 @@ const index = ({ params }) => {
             <div className="row pt30">
               <div className="col-lg-6 offset-lg-3">
                 <div className="main-title text-center mb40">
-                  <h2>Cadre medicale în apropierea ta</h2>
+                  <h2>Specialisti în apropierea ta</h2>
                 </div>
               </div>
             </div>

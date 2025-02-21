@@ -12,6 +12,7 @@ import Team from "./Team";
 import OurMission from "./OurMission";
 import Servicii from "./Servicii";
 import Oferim from "./Ceoferim";
+import { PLATFORM_NAME } from "@/utils/constants";
 
 const index = () => {
   return (
@@ -34,10 +35,9 @@ const index = () => {
           <div className="row">
             <div className="col-lg-6 offset-lg-3">
               <div className="main-title text-center">
-                <h2 className="mt0">
-                  UberMD: Platforma ta de încredere pentru locuri de muncă în
-                  domeniul medical din România
-                </h2>
+              <h2 className="mt0">
+  {PLATFORM_NAME}: Platforma ta de încredere pentru conectarea cu specialiști și programări online
+</h2>
               </div>
             </div>
           </div>
@@ -51,8 +51,8 @@ const index = () => {
           <div className="row mt80">
             <div className="col-lg-6 offset-lg-3">
               <div className="main-title text-center">
-                <h2>De ce UberMD?</h2>
-                <p>Oferim serviciu complet pas cu pas</p>
+              <h2>De ce {PLATFORM_NAME}?</h2>
+              <p>Oferim o platformă completă pentru conectarea specialiștilor cu clienți, de la promovare la programări online și consultații video.</p>
               </div>
             </div>
           </div>

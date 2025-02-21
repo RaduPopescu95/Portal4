@@ -1,3 +1,4 @@
+import { PLATFORM_NAME } from "@/utils/constants";
 import Link from "next/link";
 
 const CallToAction = () => {
@@ -5,14 +6,14 @@ const CallToAction = () => {
     <div className="row">
       <div className="col-lg-8">
         <div className="start_partner tac-smd">
-          <h2>
-            UberMD - Locul unde carierele medicale și oportunitățile se
-            întâlnesc.
-          </h2>
-          <p>
-            Înregistrează-te acum și începe călătoria ta către succes în
-            domeniul medical cu UberMD!
-          </p>{" "}
+
+<h2>
+  {PLATFORM_NAME} – Locul unde specialiștii și clienții se conectează.
+</h2>
+<p>
+  Înregistrează-te acum și începe să îți promovezi serviciile și să primești programări online pe {PLATFORM_NAME}!
+</p>
+
         </div>
         {/* End .col */}
       </div>

@@ -82,6 +82,18 @@ const SidebarMenu = () => {
             </li>
             <li
               className={`treeview ${
+                isSinglePageActive("/rezervari", pathname)
+                  ? "active"
+                  : ""
+              }`}
+            >
+              <Link href="/rezervari">
+                <i className="flaticon-layers"></i>
+                <span>Lista Rezervari</span>
+              </Link>
+            </li>
+            {/* <li
+              className={`treeview ${
                 isSinglePageActive("/lista-aplicatii-anunturi", pathname)
                   ? "active"
                   : ""
@@ -90,6 +102,18 @@ const SidebarMenu = () => {
               <Link href="/lista-aplicatii-anunturi">
                 <i className="flaticon-layers"></i>
                 <span>Lista Cererilor</span>
+              </Link>
+            </li> */}
+            <li
+              className={`treeview ${
+                isSinglePageActive("/lista-aplicatii-anunturi", pathname)
+                  ? "active"
+                  : ""
+              }`}
+            >
+              <Link href="/calendar-utilizator">
+                <i className="flaticon-calendar"></i>
+                <span>Calendar</span>
               </Link>
             </li>
             {/* <li

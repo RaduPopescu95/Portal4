@@ -78,7 +78,7 @@ const SearchData = ({ oferteInregistrate }) => {
         <tr>
           <th scope="col">Titlu Anunt</th>
           <th scope="col">Nume clinica</th>
-          <th scope="col">Nume cadru medical</th>
+          <th scope="col">Nume specialist</th>
           <th scope="col">Data aplicare</th>
           <th scope="col">Actiune</th>
         </tr>

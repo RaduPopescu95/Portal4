@@ -1,57 +1,88 @@
+"use client"
+
+import axios from "axios";
+
 const Pricing = () => {
-  const pricingContent = [
+  const pricingData = [
     {
-      id: 1,
-      price: "56",
-      title: "Standard Plan",
-      features: [
-        "50 Property Listings",
-        "60 Days Availability",
-        "20 Featured Property",
-        "Limited Support",
+      id: "price_1Qqwo5ClBW08h64jlj48WXZ5",
+      unit_amount: 100 * 100, // Valoarea în cenți; pentru afișare o împărțim la 100
+      nickname: "Basic",
+      offers: [
+        "1 User",
+        "All UI components",
+        "Lifetime access",
+        "Free updates",
+        "Use on 1 (one) project",
+        "3 Months support",
       ],
     },
     {
-      id: 2,
-      price: "190",
-      title: "Extended Plan",
-      features: [
-        "50 Property Listings",
-        "60 Days Availability",
-        "20 Featured Property",
-        "Limited Support",
+      id: "price_1Qqwo5ClBW08h64jlj48WXZ5",
+      unit_amount: 200 * 100,
+      nickname: "Premium",
+      offers: [
+        "5 Users",
+        "All UI components",
+        "Lifetime access",
+        "Free updates",
+        "Use on 1 (one) project",
+        "3 Months support",
       ],
     },
     {
-      id: 3,
-      price: "291",
-      title: "Premium Plan",
-      features: [
-        "50 Property Listings",
-        "60 Days Availability",
-        "20 Featured Property",
-        "Limited Support",
+      id: "price_1Qqwo5ClBW08h64jlj48WXZ5",
+      unit_amount: 300 * 100,
+      nickname: "Business",
+      offers: [
+        "10 Users",
+        "All UI components",
+        "Lifetime access",
+        "Free updates",
+        "Use on 1 (one) project",
+        "3 Months support",
       ],
     },
   ];
+
+    // POST request
+    const handleSubscription = async (e , priceId) => {
+      e.preventDefault();
+      const { data } = await axios.post(
+        "/api/payment",
+        {
+          priceId
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        },
+      );
+      window.location.assign(data);
+    };
+  
+
   return (
     <>
-      {pricingContent.map((item) => (
-        <div className="col-sm-6 col-md-6 col-lg-4" key={item.id}>
+      {pricingData.map((plan) => (
+        <div className="col-sm-6 col-md-6 col-lg-4" key={plan.id}>
           <div className="pricing_table">
             <div className="pricing_header">
-              <div className="price">${item.price}</div>
-              <h4>{item.title}</h4>
+              {/* Împărțim unit_amount la 100 pentru a afișa prețul în dolari */}
+              <div className="price">${plan.unit_amount / 100}</div>
+              <h4>{plan.nickname}</h4>
             </div>
             <div className="pricing_content">
               <ul className="mb0">
-                {item.features.map((val, i) => (
-                  <li key={i}>{val}</li>
+                {plan.offers.map((offer, index) => (
+                  <li key={index}>{offer}</li>
                 ))}
               </ul>
             </div>
             <div className="pricing_footer">
-              <a className="btn pricing_btn btn-block" href="#">
+              {/* Butonul poate fi configurat ulterior pentru a iniția plata prin Stripe, folosind plan.id */}
+              <a className="btn pricing_btn btn-block" href="#"   onClick={(e) => handleSubscription(e, plan.id)}>
                 Select Package
               </a>
             </div>

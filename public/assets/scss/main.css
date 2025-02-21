@@ -1,8 +1,10 @@
 /* CSS Document */
-@import "~bootstrap/scss/bootstrap";
+@import "bootstrap/scss/bootstrap";
 @import url(../scss/font-awesome.min.css);
 @import url(../scss/font-awesome-animation.min.css);
 @import url(../scss/flaticon.css);
+
+
 
 /* Table of contents */
 
@@ -21196,3 +21198,4 @@ button.gm-ui-hover-effect:focus {
 .pro-sidebar .pro-menu a.ui-active {
   color: var(--color-primary) !important;
 }
+

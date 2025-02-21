@@ -3,7 +3,9 @@
 import { Provider } from "react-redux";
 import { store } from "../store/store";
 import ScrollToTop from "@/components/common/ScrollTop";
+
 import "../public/assets/scss/index.scss";
+import "agora-react-uikit/dist/index.css";
 import { AuthProvider } from "@/context/AuthContext";
 import { LoadScript } from "@react-google-maps/api";
 

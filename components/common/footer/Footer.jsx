@@ -1,19 +1,17 @@
 import Link from "next/link";
 import Social from "./Social";
 import SubscribeForm from "./SubscribeForm";
+import { PLATFORM_NAME } from "@/utils/constants";
 
 const Footer = () => {
   return (
     <>
       <div className="col-sm-6 col-md-6 col-lg-4 col-xl-4 pr0 pl0">
         <div className="footer_about_widget">
-          <h4>Alăturați-vă Comunității UberMD</h4>
-          <p>
-            UberMD nu este doar o platformă de recrutare, ci o comunitate
-            dedicată excelenței în domeniul medical. Alăturați-vă astăzi și
-            descoperiți cum vă putem ajuta să vă atingeți obiectivele
-            profesionale.
-          </p>
+        <h4>Alăturați-vă Comunității {PLATFORM_NAME}</h4>
+<p>
+  {PLATFORM_NAME} nu este doar o platformă de programări online, ci o comunitate dedicată conectării specialiștilor cu clienți. Alăturați-vă astăzi și descoperiți cum vă putem ajuta să vă creșteți vizibilitatea și să atrageți mai mulți clienți.
+</p>
         </div>
       </div>
       {/* End .col */}
@@ -45,7 +43,7 @@ const Footer = () => {
           <ul className="list-unstyled">
             <li>
               <a href="mailto:exclusivmd@creditemedicale.ro">
-                exclusivmd@creditemedicale.ro
+                webdynamicx@gmail.com
               </a>
             </li>
             {/* <li>

@@ -17,6 +17,7 @@ import PropertyLocation from "../common/listing-details/PropertyLocation";
 import PropertyVideo from "../common/listing-details/PropertyVideo";
 import WalkScore from "../common/listing-details/WalkScore";
 import WhatsNearby from "../common/listing-details/WhatsNearby";
+import CalendarRezervari from "../common/listing-details/CalendaRezervari";
 
 const isMobile =
   /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
@@ -57,6 +58,15 @@ const DetailsContentCadruMedical = ({ partener, oferta, titulatura }) => {
 
         <h4 className="mb30">Desriere</h4>
         <PropertyDescriptions oferta={oferta} />
+      </div>
+      <div className="listing_single_description mt30">
+        {/* <div className="lsd_list">
+          <PropertyItem />
+        </div> */}
+        {/* End .lsd_list */}
+
+        <h4 className="mb30">Rezervă consultație</h4>
+        <CalendarRezervari specialistUid={oferta.user_uid} />
       </div>
       {/* <div className="listing_single_description mt30">
         <div className="lsd_list">

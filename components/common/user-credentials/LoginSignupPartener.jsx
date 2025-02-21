@@ -69,34 +69,47 @@ const LoginSignupPartener = () => {
   // Handler pentru schimbarea selectiei de judete
   const handleJudetChange = async (e) => {
     const judetSelectedName = e.target.value; // Numele județului selectat, un string
-    console.log("judetSelectedName...", judetSelectedName);
+    console.log("🚀 Start handleJudetChange...");
+    console.log("🔍 judetSelectedName:", judetSelectedName);
+  
     setJudet(judetSelectedName);
     setIsJudetSelected(!!judetSelectedName);
-
+  
     // Găsește obiectul județului selectat bazat pe `judet`
     const judetSelected = judete.find(
       (judet) => judet.judet === judetSelectedName
     );
-
-    if (judetSelected) {
-      try {
-        // Utilizăm judet pentru a interoga Firestore
-        const localitatiFromFirestore = await handleQueryFirestoreSubcollection(
-          "Localitati",
-          "judet",
-          judetSelected.judet
-        );
-        // Presupunem că localitatiFromFirestore este array-ul corect al localităților
-        setLocalitati(localitatiFromFirestore);
-      } catch (error) {
-        console.error("Failed to fetch locations:", error);
-        setLocalitati([]); // Resetează localitățile în caz de eroare
-      }
-    } else {
-      // Dacă nu găsim județul selectat, resetăm localitățile
+  
+    console.log("🔍 Obiect judetSelected:", judetSelected);
+  
+    if (!judetSelected) {
+      console.warn("⚠️ Judetul selectat nu există în lista de județe!");
       setLocalitati([]);
+      return;
+    }
+  
+    try {
+      console.log("📡 Fetching localities for:", judetSelected.judet);
+      // Utilizăm judet pentru a interoga Firestore
+      const localitatiFromFirestore = await handleQueryFirestoreSubcollection(
+        "Localitati",
+        "judet",
+        judetSelected.judet
+      );
+  
+      console.log("✅ Localități preluate din Firestore:", localitatiFromFirestore);
+      
+      if (!localitatiFromFirestore || localitatiFromFirestore.length === 0) {
+        console.warn("⚠️ Nu s-au găsit localități pentru județul selectat!");
+      }
+  
+      setLocalitati(localitatiFromFirestore);
+    } catch (error) {
+      console.error("❌ Failed to fetch locations:", error);
+      setLocalitati([]); // Resetează localitățile în caz de eroare
     }
   };
+  
 
   const handleLocationSelect = (lat, lng, adresa, urlMaps) => {
     console.log(`Selected location - Lat: ${lat}, Lng: ${lng}`);

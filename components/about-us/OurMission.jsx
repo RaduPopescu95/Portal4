@@ -1,5 +1,6 @@
 import Image from "next/image";
 import PopupVideo from "../common/PopupVideo";
+import { PLATFORM_NAME } from "@/utils/constants";
 
 const OurMission = () => {
   const missionContent = [
@@ -29,12 +30,8 @@ const OurMission = () => {
         <div className="about_content">
           {/* <p className="large"> */}
           <p className="large mb0 mb-0">
-            Bine ați venit pe UberMD, platforma dedicată exclusiv cadrelor
-            medicale și instituțiilor din domeniul sănătății. Indiferent dacă
-            sunteți un angajator în căutare de profesioniști de top sau un
-            angajat dornic să-și găsească locul potrivit în carieră, UberMD este
-            aici să vă ajute.
-          </p>
+  Bine ați venit pe {PLATFORM_NAME}, platforma dedicată conectării specialiștilor cu clienți. Indiferent dacă sunteți un specialist care dorește să-și promoveze serviciile sau un client în căutare de profesioniști de încredere, {PLATFORM_NAME} este aici să vă ajute.
+</p>
           {/* <h2>De ce UberMD?</h2>
           <h3>Anunțuri Verificate Manual</h3>
           <p>

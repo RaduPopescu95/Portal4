@@ -3,6 +3,7 @@
 import { useAuth } from "@/context/AuthContext";
 import { authentication, db } from "@/firebase";
 import { handleFirebaseAuthError } from "@/utils/authUtils";
+import axios from "axios";
 import {
   getFirestoreCollectionLength,
   handleQueryFirestoreSubcollection,
@@ -217,7 +218,6 @@ const LoginSignupUtilizator = () => {
       !email ||
       !numeUtilizator ||
       !telefon ||
-      !dataNasterii ||
       !judet ||
       !localitate ||
       !password ||
@@ -261,6 +261,12 @@ const LoginSignupUtilizator = () => {
       const collectionLength = await getFirestoreCollectionLength("UsersUber");
       let id = collectionLength + 1;
       const dateTime = getCurrentDateTime();
+          // Apel către endpoint-ul de creare Stripe Express
+    // const stripeResponse = await axios.post("/api/create-account-stripe", {
+    //   email, // poți trimite email-ul specialistului
+    // });
+    // const stripeAccountId = stripeResponse.data.accountId;
+
       let data = {
         id,
         cuim,
@@ -289,6 +295,7 @@ const LoginSignupUtilizator = () => {
         adresaSediu,
         googleMapsLink,
         coordonate,
+        // stripeAccountId
       };
 
       const collectionId = "UsersUber";
@@ -388,7 +395,7 @@ const LoginSignupUtilizator = () => {
               <div className="login_form">
                 <form onSubmit={handleLogIn} action="#">
                   <div className="heading">
-                    <h4>Autentificare cadru medical</h4>
+                    <h4>Autentificare specialist</h4>
                   </div>
                   {/* End heading */}
 
@@ -524,7 +531,7 @@ const LoginSignupUtilizator = () => {
               <div className="col-lg-6 col-xl-6">
                 <div className="sign_up_form">
                   <div className="heading">
-                    <h4>Înregistrare Cadru Medical</h4>
+                    <h4>Înregistrare specialist</h4>
                   </div>
                   {/* End .heading */}
 

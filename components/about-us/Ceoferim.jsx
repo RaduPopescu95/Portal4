@@ -1,28 +1,30 @@
 import Image from "next/image";
 import PopupVideo from "../common/PopupVideo";
+import { PLATFORM_NAME } from "@/utils/constants";
 
 const Oferim = () => {
+
   const missionContent = [
     {
       id: 1,
       icon: "flaticon-tick",
       number: "Interfață Intuitivă",
-      meta: "Platforma noastră este ușor de utilizat, indiferent de nivelul dumneavoastră de experiență cu tehnologia.",
+      meta: `${PLATFORM_NAME} este concepută pentru a fi ușor de utilizat, indiferent de nivelul dumneavoastră de experiență cu tehnologia.`,
     },
     {
       id: 2,
       icon: "flaticon-telephone",
       number: "Suport Dedicat",
-      meta: "Echipa UberMD este mereu aici pentru a vă oferi suport și asistență în utilizarea platformei noastre.",
+      meta: `Echipa ${PLATFORM_NAME} este mereu aici pentru a vă oferi suport și asistență în gestionarea profilului și programărilor.`,
     },
     {
       id: 3,
       icon: "flaticon-magnifying-glass",
-      number: "Acces la Talente",
-      meta: "Accesați o bază vastă de profesioniști din domeniul medical, gata să își aducă contribuția în organizația dumneavoastră.",
+      number: "Acces la Specialiști",
+      meta: `Accesați o comunitate vastă de specialiști gata să ofere servicii profesionale și consultații online direct pe ${PLATFORM_NAME}.`,
     },
   ];
-
+  
   return (
     <>
       <div className="col-lg-12 col-xl-12">

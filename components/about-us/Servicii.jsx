@@ -1,27 +1,30 @@
 import Image from "next/image";
 import PopupVideo from "../common/PopupVideo";
+import { PLATFORM_NAME } from "@/utils/constants";
 
 const Servicii = () => {
+
   const missionContent = [
     {
       id: 1,
       icon: "flaticon-user",
       number: "Creează-ți un Cont",
-      meta: "Completați formularul nostru de înscriere cu informațiile de bază despre dumneavoastră sau compania pe care o reprezentați.",
+      meta: `Completați formularul nostru de înscriere cu informațiile de bază despre dumneavoastră și serviciile pe care le oferiți pentru a deveni parte din ${PLATFORM_NAME}.`,
     },
     {
       id: 2,
       icon: "flaticon-tick",
       number: "Verificare și Aprobare",
-      meta: "Echipa noastră va verifica manual informațiile furnizate pentru a ne asigura că îndepliniți criteriile noastre de calitate.",
+      meta: "Echipa noastră verifică manual informațiile furnizate pentru a ne asigura că specialiștii respectă criteriile noastre de calitate și profesionalism.",
     },
     {
       id: 3,
       icon: "flaticon-college-graduation",
-      number: "Publică Anunțuri",
-      meta: "După aprobare, puteți începe să postați anunțuri de locuri de muncă și să căutați candidați potriviți.",
+      number: "Setează-ți Disponibilitatea",
+      meta: `După aprobare, puteți configura calendarul cu intervalele orare disponibile pentru consultații și începe să primiți programări direct pe ${PLATFORM_NAME}.`,
     },
   ];
+  
 
   return (
     <>

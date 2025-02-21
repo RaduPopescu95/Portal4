@@ -156,11 +156,11 @@ const HeaderMenuContent = ({ float = "" }) => {
                 priority // Încarcă imaginea cât mai rapid posibil
                 className="mr5 mb-1"
               />
-              <span className="dn-lg">Cadre medicale</span>
+              <span className="dn-lg">Specialisti</span>
             </a>
           </li>
           {/* End .dropitem */}
-          <li className={`list-inline-item list_s ${float}`}>
+          {/* <li className={`list-inline-item list_s ${float}`}>
             <a
               href="#"
               // className="btn flaticon-user" flaticon-user pentru a afisa icon
@@ -182,7 +182,7 @@ const HeaderMenuContent = ({ float = "" }) => {
               />
               <span className="dn-lg ml5">Pacienti</span>
             </a>
-          </li>
+          </li> */}
           {/* End .dropitem */}
         </>
       )}

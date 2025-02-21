@@ -7,8 +7,9 @@ import MobileMenu from "../../common/header/MobileMenu";
 import Activities from "./Activities";
 import AllStatistics from "./AllStatistics";
 import StatisticsChart from "./StatisticsChart";
+import NextReservation from "./NextReservation";
 
-const index = ({ oferteInregistrate }) => {
+const index = ({ rezervari }) => {
   const { userData } = useAuth();
   return (
     <>
@@ -66,25 +67,31 @@ const index = ({ oferteInregistrate }) => {
               {/* End .row */}
 
               <div className="row">
-                <AllStatistics />
+                <AllStatistics rezervari={rezervari} />
               </div>
               {/* End .row Dashboard top statistics */}
-
+     
               <div className="row">
-                {/* <div className="col-xl-7">
-                  <div className="application_statics">
-                    <h4 className="mb-4">View Statistics</h4>
-                    <StatisticsChart />
-                  </div>
-                </div> */}
+               
                 {/* End statistics chart */}
 
-                {/* <div className="col-xl-12">
+                <div className="col-xl-12 mb-4">
                   <div className="recent_job_activity">
                     <h4 className="title mb-4">Oferte accesate recent</h4>
-                    <Activities oferteInregistrate={oferteInregistrate} />
+                    <Activities rezervari={rezervari} />
                   </div>
-                </div> */}
+                </div>
+              </div>
+              <div className="row">
+                <div className="col-xl-7">
+                  <div className="application_statics">
+                    <h4 className="mb-4">View Statistics</h4>
+                    <StatisticsChart rezervari={rezervari} />
+                  </div>
+                </div>
+                {/* End statistics chart */}
+
+      
               </div>
               {/* End .row  */}
             </div>

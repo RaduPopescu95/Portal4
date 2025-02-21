@@ -46,47 +46,57 @@ const GlobalFilter = ({ className = "" }) => {
   };
 
   // Handler pentru schimbarea selectiei de judete
-  const handleJudetChange = async (e) => {
-    const judetSelectedName = e.target.value; // Numele județului selectat, un string
 
-    setJudet(judetSelectedName);
-    setIsJudetSelected(!!judetSelectedName);
+const handleJudetChange = async (e) => {
+  const judetSelectedName = e.target.value; // Numele județului selectat, un string
+  console.log("🚀 Start handleJudetChange...");
+  console.log("🔍 Judet selectat:", judetSelectedName);
 
-    // Găsește obiectul județului selectat bazat pe `judet`
-    const judetSelected = judete.find(
-      (judet) => judet.judet === judetSelectedName
-    );
+  setJudet(judetSelectedName);
+  setIsJudetSelected(!!judetSelectedName);
 
-    if (judetSelected != "Bucuresti") {
-      setLocalitate("");
-    }
+  // Găsește obiectul județului selectat bazat pe `judet`
+  const judetSelected = judete.find(
+    (judet) => judet.judet === judetSelectedName
+  );
 
-    if (judetSelected) {
-      try {
-        // Utilizăm judet pentru a interoga Firestore
-        const localitatiFromFirestore = await handleQueryFirestoreSubcollection(
-          "Localitati",
-          "judet",
-          judetSelected.judet
-        );
-        // Presupunem că localitatiFromFirestore este array-ul corect al localităților
-        setLocalitati(localitatiFromFirestore);
-      } catch (error) {
-        console.error("Failed to fetch locations:", error);
-        setLocalitati([]);
-        setLocalitate("");
-        setJudet("");
+  console.log("🔍 Obiect judetSelected:", judetSelected);
+
+  if (judetSelectedName !== "Bucuresti") {
+    setLocalitate("");
+  }
+
+  if (judetSelected) {
+    try {
+      console.log("📡 Fetching localities for:", judetSelected.judet);
+      // Utilizăm judet pentru a interoga Firestore
+      const localitatiFromFirestore = await handleQueryFirestoreSubcollection(
+        "Localitati",
+        "judet",
+        judetSelected.judet
+      );
+
+      console.log("✅ Localități preluate din Firestore:", localitatiFromFirestore);
+      
+      if (!localitatiFromFirestore || localitatiFromFirestore.length === 0) {
+        console.warn("⚠️ Nu s-au găsit localități pentru județul selectat!");
       }
-    } else if (judetSelected != "Bucuresti") {
-      // Dacă nu găsim județul selectat, resetăm localitățile
-      setLocalitati([]);
-      setLocalitate("");
-    } else {
+
+      setLocalitati(localitatiFromFirestore);
+    } catch (error) {
+      console.error("❌ Failed to fetch locations:", error);
       setLocalitati([]);
       setLocalitate("");
       setJudet("");
     }
-  };
+  } else {
+    console.warn("⚠️ Judetul selectat nu există în lista de județe!");
+    setLocalitati([]);
+    setLocalitate("");
+    setJudet("");
+  }
+};
+
 
   const handleLocalitateChange = (e) => {
     // Acesta ar trebui să arate numele localității ca string
@@ -382,6 +392,17 @@ const GlobalFilter = ({ className = "" }) => {
             </button>
           </div>
         </li>
+        {/* <li className="list-inline-item">
+          <div className="search_option_button">
+            <button
+              onClick={() => uploadJudete(jd)}
+              type="submit"
+              className="btn btn-thm"
+            >
+              ADAUGA JUDETE
+            </button>
+          </div>
+        </li> */}
         {/* End li */}
       </ul>
     </div>

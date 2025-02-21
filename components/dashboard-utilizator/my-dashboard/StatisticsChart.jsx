@@ -1,5 +1,4 @@
-
-'use client'
+"use client";
 
 import {
   Chart as ChartJS,
@@ -12,7 +11,7 @@ import {
   Legend,
 } from "chart.js";
 import { Line } from "react-chartjs-2";
-import { faker } from "@faker-js/faker";
+import { useMemo } from "react";
 
 ChartJS.register(
   CategoryScale,
@@ -24,49 +23,62 @@ ChartJS.register(
   Legend
 );
 
-export const options = {
-  responsive: true,
+// Funcție pentru a formata o dată în format YYYY-MM-DD
+const formatDate = (date) => date.toISOString().split("T")[0];
 
-  plugins: {
-    legend: {
-      display: false,
+export default function StatisticsChart({ rezervari }) {
+  // Calculăm ultimele 7 zile (inclusiv azi)
+  const today = new Date();
+  const days = [];
+  for (let i = 6; i >= 0; i--) {
+    const d = new Date(today);
+    d.setDate(today.getDate() - i);
+    days.push(formatDate(d));
+  }
+
+  // Agregăm rezervările pe zile (folosind data din slot.start)
+  const countsByDay = useMemo(() => {
+    const counts = {};
+    days.forEach((day) => {
+      counts[day] = 0;
+    });
+    rezervari.forEach((reservation) => {
+      if (reservation.slot && reservation.slot.start) {
+        // Extragem data (partea dinainte de "T")
+        const resDate = reservation.slot.start.split("T")[0];
+        if (counts.hasOwnProperty(resDate)) {
+          counts[resDate] += 1;
+        }
+      }
+    });
+    return days.map(day => counts[day]);
+  }, [rezervari, days]);
+
+  const options = {
+    responsive: true,
+    plugins: {
+      legend: {
+        display: false,
+      },
+      title: {
+        display: true,
+        text: "Rezervări în ultimele 7 zile",
+      },
     },
-    title: {
-      display: false,
-    },
+  };
 
-    tooltips: {
-      position: "nearest",
-      mode: "index",
-      intersect: false,
-      yPadding: 10,
-      xPadding: 10,
-      caretSize: 8,
-      backgroundColor: "rgba(72, 241, 12, 1)",
-      borderColor: "rgb(255, 99, 132)",
-      backgroundColor: "rgba(255, 99, 132, 0.5)",
-      borderColor: "rgba(0,0,0,1)",
-      borderWidth: 4,
-    },
-  },
-};
+  const data = {
+    labels: days,
+    datasets: [
+      {
+        label: "Număr rezervări",
+        data: countsByDay,
+        borderColor: "rgb(75, 192, 192)",
+        backgroundColor: "rgba(75, 192, 192, 0.2)",
+        fill: true,
+      },
+    ],
+  };
 
-const labels = ["January", "February", "March", "April", "May", "June"];
-
-export const data = {
-  labels,
-  datasets: [
-    {
-      label: "Dataset",
-      data: labels.map(() => faker.datatype.number({ min: 100, max: 400 })),
-      borderColor: "rgb(255, 99, 132)",
-      backgroundColor: "rgba(255, 99, 132, 0.5)",
-      data: [196, 132, 215, 362, 210, 252],
-      fill: false,
-    },
-  ],
-};
-
-export default function StatisticsChart() {
   return <Line options={options} data={data} />;
 }
