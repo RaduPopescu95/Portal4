@@ -2,7 +2,7 @@ import dynamic from "next/dynamic";
 import CreateListing from "@/components/dashboard/creaza-oferta";
 
 export const metadata = {
-  title: "Create Listing || UberMD",
+  title: "Create Listing || Connectify",
   description: "Portal",
 };
 

@@ -2,7 +2,7 @@ import dynamic from "next/dynamic";
 import MyDashboard from "@/components/dashboard/my-dashboard";
 
 export const metadata = {
-  title: "Dashboard || UberMD",
+  title: "Dashboard || Connectify",
   description: "Nume Portal",
 };
 

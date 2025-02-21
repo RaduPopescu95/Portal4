@@ -2,7 +2,7 @@ import dynamic from "next/dynamic";
 import MyMessage from "@/components/dashboard/my-message";
 
 export const metadata = {
-  title: "My Message || UberMD",
+  title: "My Message || Connectify",
   description: "Portal",
 };
 

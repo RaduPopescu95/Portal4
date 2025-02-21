@@ -6,8 +6,8 @@ import {
 import Tranzactie from "@/components/dashboard/verifica-tranzactie/Tranzactie";
 
 // export const metadata = {
-//   title: "Verifica tranzactie || UberMD",
-//   description: "UberMD",
+//   title: "Verifica tranzactie || Connectify",
+//   description: "Connectify",
 // };
 
 const index = async ({ params }) => {

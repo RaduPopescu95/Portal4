@@ -2,9 +2,9 @@ import dynamic from "next/dynamic";
 import Terms from "@/components/terms-conditions";
 
 export const metadata = {
-  title: "Termeni și Condiții - UberMD",
+  title: "Termeni și Condiții - Connectify",
   description:
-    "UberMD conectează cadrele medicale cu ofertele speciale ale partenerilor economici",
+    "Connectify conectează cadrele medicale cu ofertele speciale ale partenerilor economici",
 };
 
 const index = () => {

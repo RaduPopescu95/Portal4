@@ -2,7 +2,7 @@ import dynamic from "next/dynamic";
 import MySavedSearch from "@/components/dashboard/my-saved-search";
 
 export const metadata = {
-  title: "My Saved Search || UberMD",
+  title: "My Saved Search || Connectify",
   description: "Portal",
 };
 

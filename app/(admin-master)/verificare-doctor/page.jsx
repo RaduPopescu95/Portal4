@@ -2,7 +2,7 @@ import dynamic from "next/dynamic";
 import MyProfile from "@/components/dashboard-master/verifica-utilizator";
 
 export const metadata = {
-  title: "My Profile || UberMD",
+  title: "My Profile || Connectify",
   description: "Profil",
 };
 

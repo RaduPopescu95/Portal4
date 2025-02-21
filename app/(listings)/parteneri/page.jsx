@@ -4,8 +4,8 @@ import { handleGetFirestore } from "@/utils/firestoreUtils";
 import { unstable_noStore as noStore } from "next/cache";
 
 export const metadata = {
-  title: "UberMD",
-  description: "UberMD",
+  title: "Connectify",
+  description: "Connectify",
 };
 
 export async function getServerData() {

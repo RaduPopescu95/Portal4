@@ -2,7 +2,7 @@ import dynamic from "next/dynamic";
 import Terms from "@/components/terms-conditions";
 
 export const metadata = {
-  title: "Terms & Conditions || UberMD",
+  title: "Terms & Conditions || Connectify",
   description: "Portal",
 };
 

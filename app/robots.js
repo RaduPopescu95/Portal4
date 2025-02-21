@@ -42,6 +42,6 @@ export default function robots() {
         "salvate",
       ],
     },
-    sitemap: "https://ubermd.ro/sitemap.xml",
+    sitemap: "https://connetify.ro/sitemap.xml",
   };
 }
