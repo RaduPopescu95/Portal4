@@ -706,7 +706,7 @@ const LoginSignupUtilizator = () => {
                     </div>
                   </div>
                   {/* End .row */}
-                  <div className="form-group input-group mb-3">
+                  {/* <div className="form-group input-group mb-3">
                     <div
                       className={`form-control d-flex align-items-center ${
                         !telefon && buttonPressed && "border-danger"
@@ -749,7 +749,7 @@ const LoginSignupUtilizator = () => {
                         ))}
                       </select>
                     </div>
-                  </div>
+                  </div> */}
                   {/* End .row */}
                   <div className="form-group ui_kit_select_search mb-3">
                     <select

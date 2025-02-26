@@ -17,6 +17,8 @@ import FeaturedItemHome from "../listing-grid/grid-v1/FeaturedItemHome";
 import ListaAnunturiClinici from "../listing-grid/grid-v1/ListaAnunturiClinici";
 import { useAuth } from "@/context/AuthContext";
 import SkeletonLoader from "../common/SkeletonLoader";
+import AutoPopupModal from "../common/AutoPopupModal";
+import CallToAction from "../common/CallToAction";
 
 const FindProperties = lazy(() => import("./FindProperties"));
 
@@ -34,6 +36,7 @@ const index = ({ params }) => {
 
       {/* <!--  Mobile Menu --> */}
       <MobileMenu />
+
 
       {/* <!-- Modal --> */}
       <PopupSignInUp />
@@ -154,6 +157,13 @@ const index = ({ params }) => {
           </div>
         </section>
       )}
+
+         {/* <!-- Start Call to Action --> */}
+         <section className="start-partners bgc-thm pt50 pb50">
+        <div className="container">
+          <CallToAction />
+        </div>
+      </section>
 
       {/* <!-- Property Cities --> */}
       {/* <section id="best-property" className="best-property bgc-f7">

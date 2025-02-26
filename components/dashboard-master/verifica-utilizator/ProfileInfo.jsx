@@ -195,7 +195,7 @@ const ProfileInfo = ({ doctor: doc }) => {
       </div>
       {/* End .col */}
 
-      <div className="col-lg-6 col-xl-6">
+      {/* <div className="col-lg-6 col-xl-6">
         <div className="my_profile_setting_input form-group">
           <label htmlFor="formGroupExampleInput7">Data nașterii</label>
           <input
@@ -207,7 +207,7 @@ const ProfileInfo = ({ doctor: doc }) => {
             readOnly
           />
         </div>
-      </div>
+      </div> */}
       {/* End .col */}
 
       {/* <div className="col-lg-6 col-xl-6">

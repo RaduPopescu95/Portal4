@@ -203,7 +203,7 @@ const ProfileInfo = () => {
         !telefon ||
         !judet ||
         !localitate ||
-        !dataNasterii ||
+        // !dataNasterii ||
         !adresaSediu
         // !tipEnitate ||
         // tipEnitate === "Tip de entitate"
@@ -558,10 +558,10 @@ const ProfileInfo = () => {
       </div>
       {/* End .col */}
 
-      <div className="col-lg-6 col-xl-6">
+      {/* <div className="col-lg-6 col-xl-6">
         <div className="my_profile_setting_input form-group">
           <label htmlFor="formGroupExampleInput7">Data nașterii</label>
-          {/* <input
+          <input
             type="text"
             className={`form-control ${
               !dataNasterii && buttonPressed && "border-danger"
@@ -570,7 +570,7 @@ const ProfileInfo = () => {
             placeholder="Data Nasterii"
             value={dataNasterii}
             readOnly
-          /> */}
+          />
           <div
             className={`form-control d-flex align-items-center ${
               !dataNasterii && buttonPressed && "border-danger"
@@ -608,7 +608,7 @@ const ProfileInfo = () => {
             </select>
           </div>
         </div>
-      </div>
+      </div> */}
 
       {/* End .col */}
 
