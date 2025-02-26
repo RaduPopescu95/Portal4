@@ -28,10 +28,10 @@ const WhatsNearby = ({ oferte }) => {
   }, []);
 
   const handleOfferSelect = (offer) => {
-    setSelectedOffer(
-      `https://www.exclusivmd.ro/verificare-tranzactie/${userData?.id}-${offer?.documentId}UIDD${offer?.collectionId}`
-    );
-    setIsModalVisible(true);
+    // setSelectedOffer(
+    //   `https://www.exclusivmd.ro/verificare-tranzactie/${userData?.id}-${offer?.documentId}UIDD${offer?.collectionId}`
+    // );
+    // setIsModalVisible(true);
   };
 
   const closeModal = () => setIsModalVisible(false);

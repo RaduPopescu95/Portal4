@@ -42,7 +42,7 @@ const Footer = () => {
           <h4>Contactează-ne</h4>
           <ul className="list-unstyled">
             <li>
-              <a href="mailto:exclusivmd@creditemedicale.ro">
+              <a href="mailto:webdynamicx@gmail.com">
                 webdynamicx@gmail.com
               </a>
             </li>
