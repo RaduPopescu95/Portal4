@@ -12,6 +12,7 @@ import { useAuth } from "@/context/AuthContext";
 import { addDoc, collection, deleteDoc, doc, getDocs, serverTimestamp, updateDoc } from "firebase/firestore";
 import { db } from "@/firebase";
 import TimePicker from "react-time-picker";
+import ContactCTA from "@/components/dashboard-utilizator/my-dashboard/ContactCTA";
 
 const SpecialistCalendar = () => {
   const [events, setEvents] = useState([]);
@@ -311,7 +312,9 @@ const handleDeleteSlot = async (slotId) => {
             </div>
           )}
         </div>
+        <ContactCTA /> 
       </section>
+     
     </>
   );
 };

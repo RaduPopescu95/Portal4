@@ -5,6 +5,7 @@ import MobileMenu from "../../common/header/MobileMenu";
 import ChangePassword from "./ChangePassword";
 import ProfileInfo from "./ProfileInfo";
 import SocialMedia from "./SocialMedia";
+import ContactCTA from "../my-dashboard/ContactCTA";
 
 const index = () => {
   return (
@@ -84,6 +85,14 @@ const index = () => {
                   </div> */}
                   {/* End .SocialMedia */}
 
+                  <div className="my_dashboard_review mt30">
+                    <div className="row">
+                  
+                      <div className="col-xl-12">
+                      <ContactCTA /> 
+                      </div>
+                    </div>
+                  </div>
                   <div className="my_dashboard_review mt30">
                     <div className="row">
                       <div className="col-xl-2">

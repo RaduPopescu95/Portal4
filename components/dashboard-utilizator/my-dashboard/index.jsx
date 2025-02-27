@@ -8,6 +8,7 @@ import Activities from "./Activities";
 import AllStatistics from "./AllStatistics";
 import StatisticsChart from "./StatisticsChart";
 import NextReservation from "./NextReservation";
+import ContactCTA from "./ContactCTA";
 
 const index = ({ rezervari }) => {
   const { userData } = useAuth();
@@ -82,12 +83,22 @@ const index = ({ rezervari }) => {
                   </div>
                 </div>
               </div>
-              <div className="row">
+              <div className="row mb-4">
                 <div className="col-xl-7">
                   <div className="application_statics">
                     <h4 className="mb-4">Rezervari</h4>
                     <StatisticsChart rezervari={rezervari} />
                   </div>
+                </div>
+                {/* End statistics chart */}
+
+      
+              </div>
+              <div className="row">
+                <div className="col-xl-12">
+                  <div className="application_statics">
+                    {/* <h4 className="mb-4">Rezervari</h4> */}
+                    <ContactCTA />                  </div>
                 </div>
                 {/* End statistics chart */}
 
