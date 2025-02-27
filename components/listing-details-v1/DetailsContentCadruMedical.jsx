@@ -18,6 +18,7 @@ import PropertyVideo from "../common/listing-details/PropertyVideo";
 import WalkScore from "../common/listing-details/WalkScore";
 import WhatsNearby from "../common/listing-details/WhatsNearby";
 import CalendarRezervari from "../common/listing-details/CalendaRezervari";
+import Image from "next/image";
 
 const isMobile =
   /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
@@ -55,9 +56,21 @@ const DetailsContentCadruMedical = ({ partener, oferta, titulatura }) => {
           <PropertyItem />
         </div> */}
         {/* End .lsd_list */}
-
-        <h4 className="mb30">Desriere</h4>
+            <Image
+          src={partener?.logo?.finalUri}
+          alt="Logo"
+          width={200}
+          height={200}
+          objectFit="cover" // imaginea se va adapta complet în container
+          className="logo1 profil-image-logo img-fluid"
+        />
+{
+  oferta?.descriere &&
+  <>
+        <h4 className="mb30 mt30">Desriere</h4>
         <PropertyDescriptions oferta={oferta} />
+  </>
+}
       </div>
       <div className="listing_single_description mt30">
         {/* <div className="lsd_list">

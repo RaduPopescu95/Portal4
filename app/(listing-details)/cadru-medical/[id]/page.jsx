@@ -58,13 +58,13 @@ const ListingDynamicDetailsV1 = async ({ params, searchParams }) => {
       <section className="our-agent-single bgc-f7 pb30-991">
         <div className="container">
           <div className="row">
-            <div className="col-lg-12 p-0">
+            {/* <div className="col-lg-12 p-0">
               <PropertyHeaderCadruMedical
                 partener={partener[0]}
                 oferta={partener[0]}
                 titulatura={partener[0].titulatura}
               />
-            </div>
+            </div> */}
             <div className="col-md-12 col-lg-12">
               <DetailsContent
                 partener={partener[0]}

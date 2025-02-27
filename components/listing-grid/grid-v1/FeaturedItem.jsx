@@ -257,7 +257,7 @@ const FeaturedItem = ({ params, searchQuery }) => {
             href={{
               pathname: pathname,
               query: {
-                slug: item.cadruMedical?.id,
+                slug: item.id,
               },
             }}
             passHref
@@ -269,7 +269,7 @@ const FeaturedItem = ({ params, searchQuery }) => {
           href={{
             pathname: pathname,
             query: {
-              slug: item.cadruMedical?.id,
+              slug: item.id,
             },
           }}
           passHref

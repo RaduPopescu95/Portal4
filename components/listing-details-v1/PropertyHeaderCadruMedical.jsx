@@ -7,14 +7,15 @@ const PropertyHeaderCadruMedical = ({ titulatura, oferta, partener }) => {
     <div className="feat_property list agency">
       <div className="details ">
         <div className="tc_content pt10 d-flex flex-column justify-content-center align-items-center">
-          <Image
-            width={600}
-            height={600}
-            className="logo1 profil-image-logo img-fluid"
-            src={partener?.logo?.finalUri}
-            alt="Logo"
-            layout="intrinsic"
-          />
+        <Image
+  src={partener?.logo?.finalUri}
+  alt="Logo"
+  width={200}
+  height={200}
+  objectFit="cover" // imaginea se va adapta complet în container
+  className="logo1 profil-image-logo img-fluid"
+/>
+
           {/* <div className="d-flex flex-column justify-content-center align-items-center">
             <h3 className="m-0 fw-bold fz20">{partener?.numeUtilizator}</h3>
           </div> */}

@@ -15,21 +15,27 @@ const FeaturedProperty = ({ item, isGridOrList }) => {
         // style={{ backgroundImage: item?.gradient?.gradientSelected }}
       >
         {item.tipAnunt === "Clinica" ? (
-          <Image
-            width={342}
-            height={220}
-            className="img-whp w-100 h-100 cover"
-            src={item?.logo?.finalUri}
-            alt="fp1.jpg"
-          />
+        <div className="thumb" style={{ position: 'relative', width: '100%', height: '220px' }}>
+        <Image
+          src={item?.logo?.finalUri}
+          alt="fp1.jpg"
+          fill
+          style={{ objectFit: 'cover' }} // Pentru a umple containerul; folosește "contain" dacă vrei să vezi întreaga imagine
+          quality={100}
+        />
+      </div>
+      
         ) : (
+          <div className="thumb" style={{ position: 'relative', width: '100%', height: '220px' }}>
           <Image
-            width={342}
-            height={220}
-            className="img-whp w-100 h-100 cover"
             src={item?.logo?.finalUri}
             alt="fp1.jpg"
+            fill
+            style={{ objectFit: 'cover' }} // Pentru a umple containerul; folosește "contain" dacă vrei să vezi întreaga imagine
+            quality={100}
           />
+        </div>
+        
         )}
 
         <div className="thmb_cntnt">
