@@ -1,0 +1,135 @@
+/* styles/HorizontalGradientSelector.module.css */
+.gradient-selector {
+  display: flex;
+  overflow-x: auto;
+  gap: 10px;
+  padding: 10px;
+}
+
+.card {
+  flex: 0 0 auto;
+  width: 150px;
+  height: 100px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  cursor: pointer;
+  background-size: cover;
+  border: 2px solid transparent;
+}
+
+.card.selected {
+  border-color: white;
+}
+
+.btn-smaller-height {
+  height: 30px; /* Sau orice altă înălțime dorită */
+}
+
+.grey-out {
+  filter: grayscale(100%); /* Transformă imaginea în alb-negru */
+  opacity: 0.5; /* Face elementul semi-transparent pentru a indica indisponibilitatea */
+  pointer-events: none; /* Dezactivează orice interacțiune cu elementul */
+  user-select: none; /* Previne selecția textului din elementul respectiv */
+}
+
+.unavailability-reason {
+  color: #ffd700;
+  background-color: #333;
+  padding: 5px;
+  border-radius: 5px;
+  max-width: 300px;
+}
+
+.slick-slide-padding {
+  padding: 0 15px; /* Adjust the 15px to increase or decrease the gap */
+}
+
+.slick-list {
+  margin: 0 -15px; /* This counteracts the padding on the slides, ensuring the edges align properly */
+}
+
+.modal-content {
+  z-index: 1050; /* Exemplu de valoare tipică pentru modaluri */
+}
+
+.autocomplete-dropdown {
+  position: relative;
+  z-index: 1100; /* Mai mare decât z-index-ul modalului */
+}
+
+.pac-container {
+  z-index: 1500 !important; /* Folosește o valoare mare pentru a depăși z-index-ul modalului */
+}
+
+.single_line {
+  display: flex;
+  align-items: center; /* Aligns items vertically in the center */
+  justify-content: space-between; /* Puts maximum space between text container and button/paragraph */
+}
+
+.text_container {
+  flex-grow: 1; /* Allows the text container to take up remaining space */
+}
+
+.offer {
+  margin-top: 10px; /* Gives top margin for all offers except the first */
+}
+
+.custom-alert {
+  width: 50%; /* Setează lățimea dorită, de exemplu 50% din lățimea viewport-ului */
+  left: 25%; /* Centrarea se face ajustând left la jumătate din diferența până la 100% */
+  right: 25%; /* Asigură-te că marginile dreapta și stânga sunt egale */
+}
+
+.form-data-nasterii {
+  margin-right: 10px;
+}
+
+.upload-btn-wrapper .upload-label:hover .upload-text {
+  color: blue; /* Culoarea textului la hover */
+}
+
+.btnDisabled {
+  background-color: #cccccc !important; /* Gri */
+  color: white;
+  cursor: not-allowed;
+}
+
+.btnEnabled {
+  background-color: #007bff; /* Albastru Bootstrap pentru .btn-primary */
+  color: white;
+}
+
+.file-color {
+  color: white; /* Culoarea inițială */
+}
+.file-color:hover {
+  color: var(--color-primary); /* Schimbă în culoarea dorită la hover */
+}
+
+.zona-interes {
+  color: var(--color-primary);
+}
+
+/* Adaugă acest CSS în fișierul tău global de stiluri sau un modul CSS asociat componentei */
+.feat_property a.details:hover .tc_content *:not(button),
+.feat_property a.details:hover .tc_content {
+  color: var(--color-primary);
+}
+
+.contrast-container {
+  background-color: rgba(0, 0, 0, 0.7); /* Culoare negru cu opacitate 70% */
+  border-radius: 10px; /* Border radius pentru colțuri rotunjite */
+  padding: 10px; /* Padding pentru spațiu interior */
+  position: absolute;
+  left: 20px;
+  bottom: 15px;
+  width: 200px;
+}
+
+.container {
+  max-width: 1300px !important;
+}
