@@ -45,9 +45,10 @@ const AutocompleteInput = ({ onPlaceChanged, adresa, buttonPressed }) => {
     >
       <input
         type="text"
-        className={`form-control ${
-          !adresa && buttonPressed && "border-danger"
-        }`}
+        className={`form-control`}
+        // className={`form-control ${
+        //   !adresa && buttonPressed && "border-danger"
+        // }`}
         placeholder="Introduceți adresa"
         style={{ width: "100%", padding: "10px" }}
         value={inputValue}

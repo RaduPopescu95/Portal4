@@ -645,9 +645,7 @@ const LoginSignupUtilizator = () => {
                       <div className="form-group input-group mb-3">
                         <input
                           type="text"
-                          className={`form-control ${
-                            !telefon && buttonPressed && "border-danger"
-                          }`}
+                          className={`form-control`}
                           id="exampleInputName"
                           placeholder="Număr de telefon"
                           value={telefon}
