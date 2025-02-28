@@ -229,8 +229,7 @@ const LoginSignupUtilizator = () => {
       !telefon ||
       !judet ||
       !localitate ||
-      !password ||
-      !adresaSediu
+      !password
     ) {
       console.log("noo...", email);
       console.log("noo...", numeUtilizator);
