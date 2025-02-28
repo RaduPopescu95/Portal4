@@ -226,7 +226,6 @@ const LoginSignupUtilizator = () => {
     if (
       !email ||
       !numeUtilizator ||
-      !telefon ||
       !judet ||
       !localitate ||
       !password

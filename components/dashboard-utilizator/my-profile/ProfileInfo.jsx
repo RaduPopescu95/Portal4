@@ -213,7 +213,7 @@ const ProfileInfo = () => {
     setIsLoading(true);
 
     // Validări de bază
-    if (!email || !numeUtilizator || !telefon || !judet || !localitate) {
+    if (!email || !numeUtilizator || !judet || !localitate) {
       setIsLoading(false);
       return;
     }
