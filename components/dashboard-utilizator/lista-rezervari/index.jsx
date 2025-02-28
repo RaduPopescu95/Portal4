@@ -1,3 +1,5 @@
+// Index.jsx
+import { useState } from "react";
 import Header from "../../common/header/dashboard-utilizator/Header";
 import SidebarMenu from "../../common/header/dashboard-utilizator/SidebarMenu";
 import MobileMenu from "../../common/header/MobileMenu";
@@ -5,12 +7,12 @@ import SearchBox from "./SearchBox";
 import ReservationsData from "./ReservationsData";
 
 const Index = ({ rezervari }) => {
+  // Starea pentru textul din SearchBox
+  const [searchQuery, setSearchQuery] = useState("");
+
   return (
     <>
-      {/* Main Header Nav */}
       <Header />
-
-      {/* Mobile Menu */}
       <MobileMenu />
 
       <div className="dashboard_sidebar_menu">
@@ -25,13 +27,11 @@ const Index = ({ rezervari }) => {
       </div>
       {/* End sidebar_menu */}
 
-      {/* Our Dashboard */}
       <section className="our-dashbord dashbord bgc-f7 pb50">
         <div className="container-fluid ovh">
           <div className="row">
             <div className="col-lg-12 maxw100flex-992">
               <div className="row">
-                {/* Dashboard Navigation */}
                 <div className="col-lg-12">
                   <div className="dashboard_navigationbar dn db-1024">
                     <div className="dropdown">
@@ -46,7 +46,6 @@ const Index = ({ rezervari }) => {
                     </div>
                   </div>
                 </div>
-                {/* End Dashboard Navigation */}
               </div>
               {/* End .row */}
 
@@ -60,7 +59,11 @@ const Index = ({ rezervari }) => {
                 <div className="col-md-4 col-lg-4 col-xl-3 mb20">
                   <ul className="sasw_list mb0">
                     <li className="search_area">
-                      <SearchBox />
+                      {/* Transmitem searchQuery și setSearchQuery către SearchBox */}
+                      <SearchBox
+                        searchQuery={searchQuery}
+                        setSearchQuery={setSearchQuery}
+                      />
                     </li>
                   </ul>
                 </div>
@@ -74,7 +77,14 @@ const Index = ({ rezervari }) => {
                     <div className="col-lg-12">
                       <div className="savesearched_table">
                         <div className="table-responsive mt0">
-                          <ReservationsData rezervari={rezervari} />
+                          {/*
+                            Transmitem searchQuery și către ReservationsData
+                            pentru a face filtrarea
+                          */}
+                          <ReservationsData
+                            rezervari={rezervari}
+                            searchQuery={searchQuery}
+                          />
                         </div>
                       </div>
                       {/* End .savesearched_table */}

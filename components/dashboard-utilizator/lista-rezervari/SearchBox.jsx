@@ -1,13 +1,15 @@
-const SearchBox = () => {
+// SearchBox.jsx
+const SearchBox = ({ searchQuery, setSearchQuery }) => {
   return (
-    <form className="form-group">
+    <form className="form-group" onSubmit={(e) => e.preventDefault()}>
       <input
         type="text"
         className="form-control"
-        id="exampleInputName1"
-        placeholder="Search"
+        placeholder="Search..."
+        value={searchQuery}
+        onChange={(e) => setSearchQuery(e.target.value)}
       />
-      <label htmlFor="exampleInputEmail">
+      <label>
         <span className="flaticon-magnifying-glass"></span>
       </label>
     </form>

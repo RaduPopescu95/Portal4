@@ -34,7 +34,7 @@ const CalendarRezervari = ({ specialistUid }) => {
 
       // Mapăm pentru FullCalendar (fără booked slots)
       const mappedEvents = fetchedSlots.map((slot) => ({
-        title: `Slot: ${slot.start} - ${slot.end}`,
+        title: `${slot.start} - ${slot.end}`,
         start: `${slot.date}T${slot.start}`,
         end: `${slot.date}T${slot.end}`,
         documentId: slot.documentId,
@@ -99,6 +99,7 @@ const CalendarRezervari = ({ specialistUid }) => {
         client: reservationData, // datele clientului (inclusiv email)
         createdAt: new Date(),
         specialistId: specialistUid,
+        reminderSent: false, // <-- ADĂUGĂ asta
       };
 
       const rezervariRef = collection(db, "UsersUber", specialistUid, "RezervariConsultatii");
@@ -173,6 +174,10 @@ const CalendarRezervari = ({ specialistUid }) => {
         selectable={true}
         events={freeEvents} // afișăm doar sloturile libere
         dateClick={handleDateClick}
+        displayEventTime={false}
+    
+
+        aspectRatio={2}          // raportul lățime/înălțime
         dayCellDidMount={(info) => {
           const dateStr = info.date.toISOString().split("T")[0];
           // Verificăm toate sloturile disponibile (indiferent de status)

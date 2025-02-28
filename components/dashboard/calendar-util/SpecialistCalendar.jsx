@@ -236,6 +236,7 @@ const handleDeleteSlot = async (slotId) => {
             selectable={true}
             events={events}
             dateClick={handleDateClick}
+            aspectRatio={2}          // raportul lățime/înălțime
           />
           {selectedDate && (
             <div style={styles.dialogOverlay}>
