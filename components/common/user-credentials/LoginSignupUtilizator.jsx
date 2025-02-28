@@ -28,6 +28,10 @@ import { AlertModal } from "../AlertModal";
 import useDataNasterii from "@/hooks/useDataNasterii";
 import AutocompleteInput from "../AutocompleteInput";
 import { TITLES_AND_SPECIALTIES } from "@/utils/constanteTitulatura";
+import LogoUpload from "@/components/dashboard/my-profile/LogoUpload";
+import { uploadImage } from "@/utils/storageUtils";
+
+
 
 const LoginSignupUtilizator = () => {
   const { userData, currentUser, setCurrentUser, setUserData, judete } =
@@ -78,8 +82,36 @@ const LoginSignupUtilizator = () => {
   const [coordonate, setCoordonate] = useState({});
   const router = useRouter();
 
+  const [logo, setLogo] = useState([]);
+const [isNewLogo, setIsNewLogo] = useState(false);
+const [deletedLogo, setDeletedLogo] = useState(null);
+
+
   // Noua stare pentru controlul etapelor de înregistrare
   const [registrationStep, setRegistrationStep] = useState(1);
+
+  const singleImage = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      // Verifică dacă fișierul este deja selectat
+      const isExist = logo.some((existingFile) => existingFile.name === file.name);
+      if (!isExist) {
+        setLogo([file]);
+        setIsNewLogo(true);
+      } else {
+        alert("Această imagine este deja selectată!");
+      }
+    }
+  };
+  
+  const deleteLogo = () => {
+    if (logo[0]?.fileName) {
+      // Dacă imaginea a mai fost încărcată, marchează-o pentru ștergere
+      setDeletedLogo(logo[0].fileName);
+    }
+    setLogo([]);
+  };
+  
 
   // Funcțiile existente pentru selectarea din <select> (păstrate, deși nu vor fi folosite acum în checkbox-uri)
   const handleTitleChange = (event) => {
@@ -242,6 +274,12 @@ const LoginSignupUtilizator = () => {
       return;
     }
 
+      // Verifică dacă a fost selectată o imagine
+  if (logo.length === 0) {
+    showAlert("Selectați imaginea de profil!", "danger");
+    return;
+  }
+
     try {
       const userCredential = await createUserWithEmailAndPassword(
         authentication,
@@ -253,6 +291,19 @@ const LoginSignupUtilizator = () => {
         "User created successfully with email: ",
         userCredential.user
       );
+
+        // Dacă imaginea este nouă, realizează upload-ul
+    let lg = {};
+    if (isNewLogo) {
+      lg = await uploadImage(logo, true, "ProfileImage", deletedLogo);
+    } else {
+      if (!logo[0]?.fileName) {
+        lg = await uploadImage(logo, false, "ProfileImage");
+      } else {
+        lg = logo[0];
+      }
+    }
+    
       const collectionLength = await getFirestoreCollectionLength("UsersUber");
       let id = collectionLength + 1;
       const dateTime = getCurrentDateTime();
@@ -290,6 +341,7 @@ const LoginSignupUtilizator = () => {
         adresaSediu,
         googleMapsLink,
         coordonate,
+        logo: lg,
         // stripeAccountId
       };
 
@@ -512,6 +564,7 @@ const LoginSignupUtilizator = () => {
             aria-labelledby="profile-tab"
           >
             <form onSubmit={handleSignUp} action="#" className="row">
+
               {registrationStep === 1 && (
                 <>
                   {/* Etapa 1: Toate câmpurile, cu excepția selectării titulaturilor și specialităților */}
@@ -520,6 +573,15 @@ const LoginSignupUtilizator = () => {
                       <div className="heading">
                         <h4>Înregistrare specialist - Pasul 1</h4>
                       </div>
+                      <LogoUpload
+  singleImage={singleImage}
+  deleteLogo={deleteLogo}
+  logoImg={logo}
+  isEdit={false} // la sign up, nu există încă o imagine existentă
+  isNewImage={isNewLogo}
+  text="Adaugă imagine profil"
+/>
+
                       <div className="form-group input-group mb-3">
                         <input
                           type="text"
@@ -562,7 +624,15 @@ const LoginSignupUtilizator = () => {
                         </div>
                       </div>
 
-                      <div className="form-group input-group mb-3">
+               
+                    </div>
+                  </div>
+
+                  
+
+                  <div className="col-lg-6 col-xl-6">
+                    <div className="sign_up_form">
+                    <div className="form-group input-group mb-3">
                         <input
                           type={passwordVisible ? "text" : "password"}
                           className={`form-control ${
@@ -637,11 +707,6 @@ const LoginSignupUtilizator = () => {
                           {confirmPasswordError}
                         </div>
                       )}
-                    </div>
-                  </div>
-
-                  <div className="col-lg-6 col-xl-6">
-                    <div className="sign_up_form">
                       <div className="form-group input-group mb-3">
                         <input
                           type="text"
