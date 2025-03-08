@@ -35,7 +35,7 @@ export default function ListingOneCadruMedical({ partener, oferta }) {
               <Image
                 width={752} // Fixed width
                 height={450} // Fixed height
-                src={partener?.imagineOferta?.finalUri}
+                src={partener?.imagineOferta?.finalUri || "/assets/images/logo_jobsmd.svg"}
                 alt={`Property Image`}
                 layout="responsive" // Makes the image scale responsively within the fixed dimensions
                 objectFit="cover" // Covers the area without distorting the image, may crop

@@ -18,18 +18,18 @@ const FeaturedProperty = ({ item, isGridOrList }) => {
         {item.tipAnunt === "Clinica" ? (
         <div className="thumb" style={{ position: 'relative', width: '100%', height: '220px' }}>
         <Image
-          src={item?.logo?.finalUri}
-          alt="fp1.jpg"
-          fill
-          style={{ objectFit: 'cover' }} // Pentru a umple containerul; folosește "contain" dacă vrei să vezi întreaga imagine
-          quality={100}
+         src={item?.logo?.finalUri || "/assets/images/logo_jobsmd.svg"}
+         alt="fp1.jpg"
+         fill
+         style={{ objectFit: 'contain' }} // Folosește "contain" pentru a afișa întreaga imagine
+         quality={100}
         />
       </div>
       
         ) : (
           <div className="thumb" style={{ position: 'relative', width: '100%', height: '220px' }}>
           <Image
-            src={item?.logo?.finalUri}
+            src={item?.logo?.finalUri || "/assets/images/logo_jobsmd.svg"}
             alt="fp1.jpg"
             fill
             style={{ objectFit: 'cover' }} // Pentru a umple containerul; folosește "contain" dacă vrei să vezi întreaga imagine
@@ -101,11 +101,12 @@ const FeaturedProperty = ({ item, isGridOrList }) => {
       <div className="details">
         <div className="tc_content">
           <p className="text-thm">
-            {item?.titulatura} {`(${item?.specializare})` || ""} -{" "}
+          {Array.isArray(item?.titulatura) ? item.titulatura.join(", ") : item?.titulatura} - {" "}
+            {/* {item?.titulatura} {`(${item?.specializare})` || ""} -{" "} */}
             {item?.localitate}
           </p>
           <p>
-            <span className="flaticon-placeholder zona-interes mr-5"></span>
+            {item?.adresaSediu && <span className="flaticon-placeholder zona-interes mr-5"></span>} 
             {item?.adresaSediu && `Zona de interes: ${item?.adresaSediu}`}
           </p>
           {item?.distanta && <p>{item?.distanta} metri</p>}

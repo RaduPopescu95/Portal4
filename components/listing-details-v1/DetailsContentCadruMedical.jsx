@@ -57,7 +57,7 @@ const DetailsContentCadruMedical = ({ partener, oferta, titulatura }) => {
         </div> */}
         {/* End .lsd_list */}
             <Image
-          src={partener?.logo?.finalUri}
+          src={partener?.logo?.finalUri || "/assets/images/logo_jobsmd.svg"}
           alt="Logo"
           width={200}
           height={200}
